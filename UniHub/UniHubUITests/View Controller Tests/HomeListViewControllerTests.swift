@@ -36,4 +36,10 @@ class HomeListViewControllerTests: XCTestCase {
         XCTAssert(vcUnderTest.conforms(to: UICollectionViewDelegate.self))
         XCTAssertNotNil(vcUnderTest.getCollectionView().delegate)
     }
+    
+    func testViewControllerConformsToCollectionViewDelegateFlowLayout() throws {
+        XCTAssert(vcUnderTest.conforms(to: UICollectionViewDelegateFlowLayout.self))
+        XCTAssertTrue(vcUnderTest.responds(to: #selector(vcUnderTest.collectionView(_:layout:minimumLineSpacingForSectionAt:))))
+        XCTAssertTrue(vcUnderTest.responds(to: #selector(vcUnderTest.collectionView(_:layout:sizeForItemAt:))))
+    }
 }

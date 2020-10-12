@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		7F0B21B5253500C50054857C /* HomeListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B21B4253500C50054857C /* HomeListCollectionViewCell.swift */; };
 		7F0B21C825350C9D0054857C /* CellLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B21C725350C9D0054857C /* CellLabel.swift */; };
+		7F0B21CC253510D20054857C /* CellLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B21C725350C9D0054857C /* CellLabel.swift */; };
+		7F0B21D0253510D50054857C /* HomeListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B21B4253500C50054857C /* HomeListCollectionViewCell.swift */; };
 		7F533292253207DA00E86AEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F533291253207DA00E86AEA /* AppDelegate.swift */; };
 		7F533294253207DA00E86AEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F533293253207DA00E86AEA /* SceneDelegate.swift */; };
 		7F533296253207DA00E86AEA /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F533295253207DA00E86AEA /* HomeListViewController.swift */; };
@@ -578,6 +580,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F0B21D0253510D50054857C /* HomeListCollectionViewCell.swift in Sources */,
 				7F5332B4253207DC00E86AEA /* UniHubUITests.swift in Sources */,
 				7F53332E2534ECF600E86AEA /* HomeListViewController.swift in Sources */,
 				7F5333362534ED1000E86AEA /* UniversityViewModel.swift in Sources */,
@@ -586,6 +589,7 @@
 				7F53333E2534ED1300E86AEA /* University.swift in Sources */,
 				7F5333562534ED3600E86AEA /* NetworkingParser.swift in Sources */,
 				7F5333462534ED2200E86AEA /* APIClient.swift in Sources */,
+				7F0B21CC253510D20054857C /* CellLabel.swift in Sources */,
 				7F53335E2534ED3900E86AEA /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
