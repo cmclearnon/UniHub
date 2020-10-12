@@ -42,10 +42,7 @@ extension APIClient: APICallable {
         /// Returns either tuple (Data, URLResponse) or URLError
         return URLSession.shared.dataTaskPublisher(for: URLRequest(url: url))
             .tryMap { data, response in
-                if let httpResponse = response as? HTTPURLResponse, (200..<300).contains(httpResponse.statusCode) == false {
-                    throw APIError.statusCode(response as! HTTPURLResponse)
-                }
-                return data
+                try validateResponse(data, response)
             }
             /// Cast error as APIError
             .mapError { error -> APIError in

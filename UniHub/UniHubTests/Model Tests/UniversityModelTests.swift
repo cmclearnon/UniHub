@@ -33,6 +33,10 @@ class UniversityModelCodableTests: XCTestCase {
         let missingKey = "country"
         AssertThrowsKeyNotFound(missingKey: missingKey, decodingType: University.self, from: fixtureMissingAttributeKey)
     }
+    
+    func testModelEncoding() throws {
+        XCTAssertNoThrow(try JSONEncoder().encode(expectedModelInstance))
+    }
 }
 
 extension UniversityModelCodableTests {

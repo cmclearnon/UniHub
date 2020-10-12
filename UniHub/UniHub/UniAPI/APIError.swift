@@ -10,5 +10,6 @@ import Foundation
 enum APIError: Error {
     case parsing(description: String)
     case network(description: String)
+    case invalidResponse(description: String)
     case statusCode(HTTPURLResponse)
 }

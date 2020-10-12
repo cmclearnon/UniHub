@@ -29,17 +29,13 @@ class UniversityViewModel: ObservableObject, Identifiable {
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { completion in
-                    print("In completion")
                     switch completion {
                     case .failure(let error):
-                        print("Failure: \(error)")
                         self.universityList = []
                     case .finished:
-                        print("Finished")
                         break
                     }
                 }, receiveValue: { universities in
-                    print(universities[0])
                     self.universityList = universities
                 }
             )

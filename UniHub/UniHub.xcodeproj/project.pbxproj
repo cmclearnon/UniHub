@@ -21,6 +21,8 @@
 		7F5332E2253239CF00E86AEA /* UniversityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332E1253239CF00E86AEA /* UniversityViewModel.swift */; };
 		7F5332EB25347AD400E86AEA /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332EA25347AD300E86AEA /* University.swift */; };
 		7F5332F42534AE7A00E86AEA /* UniversityModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332F32534AE7A00E86AEA /* UniversityModelTests.swift */; };
+		7F5333032534B8CD00E86AEA /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5333022534B8CD00E86AEA /* APIClientTests.swift */; };
+		7F53330B2534BC4200E86AEA /* NetworkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53330A2534BC4200E86AEA /* NetworkUtilities.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +63,8 @@
 		7F5332E1253239CF00E86AEA /* UniversityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityViewModel.swift; sourceTree = "<group>"; };
 		7F5332EA25347AD300E86AEA /* University.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = University.swift; sourceTree = "<group>"; };
 		7F5332F32534AE7A00E86AEA /* UniversityModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityModelTests.swift; sourceTree = "<group>"; };
+		7F5333022534B8CD00E86AEA /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
+		7F53330A2534BC4200E86AEA /* NetworkUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtilities.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 		7F5332A7253207DC00E86AEA /* UniHubTests */ = {
 			isa = PBXGroup;
 			children = (
+				7F5333012534B89A00E86AEA /* Networking Tests */,
 				7F5332F22534AE5B00E86AEA /* Model Tests */,
 				7F5332A8253207DC00E86AEA /* UniHubTests.swift */,
 				7F5332AA253207DC00E86AEA /* Info.plist */,
@@ -182,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				7F5332D625320C9A00E86AEA /* NetworkingParser.swift */,
+				7F53330A2534BC4200E86AEA /* NetworkUtilities.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -208,6 +214,14 @@
 				7F5332F32534AE7A00E86AEA /* UniversityModelTests.swift */,
 			);
 			path = "Model Tests";
+			sourceTree = "<group>";
+		};
+		7F5333012534B89A00E86AEA /* Networking Tests */ = {
+			isa = PBXGroup;
+			children = (
+				7F5333022534B8CD00E86AEA /* APIClientTests.swift */,
+			);
+			path = "Networking Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -341,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F533296253207DA00E86AEA /* ViewController.swift in Sources */,
+				7F53330B2534BC4200E86AEA /* NetworkUtilities.swift in Sources */,
 				7F5332D725320C9A00E86AEA /* NetworkingParser.swift in Sources */,
 				7F533292253207DA00E86AEA /* AppDelegate.swift in Sources */,
 				7F5332E2253239CF00E86AEA /* UniversityViewModel.swift in Sources */,
@@ -355,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F5333032534B8CD00E86AEA /* APIClientTests.swift in Sources */,
 				7F5332A9253207DC00E86AEA /* UniHubTests.swift in Sources */,
 				7F5332F42534AE7A00E86AEA /* UniversityModelTests.swift in Sources */,
 			);
