@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class HomeListViewController: UIViewController {
+class HomeListViewController: UIViewController, UICollectionViewDelegate {
 
     private var viewModel: UniversityViewModel?
     
@@ -16,10 +16,10 @@ class HomeListViewController: UIViewController {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        cv.backgroundColor = .green
+        cv.backgroundColor = .clear
         cv.showsVerticalScrollIndicator = false
         cv.translatesAutoresizingMaskIntoConstraints = false
-//        cv.register(BreedCollectionCell.self, forCellWithReuseIdentifier: "cell")
+        cv.register(HomeListCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
         return cv
     }()
     
@@ -33,6 +33,12 @@ class HomeListViewController: UIViewController {
         return lb
     }()
     
+    fileprivate let activityIndicatorView: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
@@ -41,7 +47,9 @@ class HomeListViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupViews()
-        self.viewModel = UniversityViewModel()
+        self.viewModel = UniversityViewModel(delegate: self)
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
     }
 }
 
@@ -49,6 +57,7 @@ extension HomeListViewController {
     func setupViews() {
         view.addSubview(collectionView)
         view.addSubview(connectionWarningMessageView)
+        view.addSubview(activityIndicatorView)
         
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
@@ -60,7 +69,54 @@ extension HomeListViewController {
         connectionWarningMessageView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -40).isActive = true
         connectionWarningMessageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         connectionWarningMessageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        connectionWarningMessageView.isHidden = true
         
+        activityIndicatorView.center = view.center
+        
+    }
+    
+    func getCollectionView() -> UICollectionView {
+        return collectionView
+    }
+}
+
+extension HomeListViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return self.viewModel?.getViewModelListCount() ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeListCollectionViewCell
+        cell.backgroundColor = .gray
+        cell.nameString = "Testing"
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 300)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return CGFloat(30)
+    }
+}
+
+extension HomeListViewController: UniversityViewModelEventsDelegate {
+    func updateLoadingIndicator() {
+        if (activityIndicatorView.isAnimating == false) {
+            activityIndicatorView.startAnimating()
+        } else {
+            activityIndicatorView.stopAnimating()
+        }
+    }
+    
+    func updateUIContent() {
+        if (collectionView.isHidden == false) {
+            collectionView.isHidden = true
+        } else {
+            collectionView.reloadData()
+            collectionView.isHidden = false
+        }
     }
 }
 

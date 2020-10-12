@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F0B21B5253500C50054857C /* HomeListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B21B4253500C50054857C /* HomeListCollectionViewCell.swift */; };
 		7F533292253207DA00E86AEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F533291253207DA00E86AEA /* AppDelegate.swift */; };
 		7F533294253207DA00E86AEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F533293253207DA00E86AEA /* SceneDelegate.swift */; };
 		7F533296253207DA00E86AEA /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F533295253207DA00E86AEA /* HomeListViewController.swift */; };
@@ -23,6 +24,22 @@
 		7F5332F42534AE7A00E86AEA /* UniversityModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332F32534AE7A00E86AEA /* UniversityModelTests.swift */; };
 		7F5333032534B8CD00E86AEA /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5333022534B8CD00E86AEA /* APIClientTests.swift */; };
 		7F53330B2534BC4200E86AEA /* NetworkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53330A2534BC4200E86AEA /* NetworkUtilities.swift */; };
+		7F53331D2534E43B00E86AEA /* HomeListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53331C2534E43B00E86AEA /* HomeListViewControllerTests.swift */; };
+		7F53332E2534ECF600E86AEA /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F533295253207DA00E86AEA /* HomeListViewController.swift */; };
+		7F5333322534ED0F00E86AEA /* UniversityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332E1253239CF00E86AEA /* UniversityViewModel.swift */; };
+		7F5333362534ED1000E86AEA /* UniversityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332E1253239CF00E86AEA /* UniversityViewModel.swift */; };
+		7F53333A2534ED1200E86AEA /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332EA25347AD300E86AEA /* University.swift */; };
+		7F53333E2534ED1300E86AEA /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332EA25347AD300E86AEA /* University.swift */; };
+		7F5333422534ED2100E86AEA /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332CD25320B6E00E86AEA /* APIClient.swift */; };
+		7F5333462534ED2200E86AEA /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332CD25320B6E00E86AEA /* APIClient.swift */; };
+		7F53334A2534ED3200E86AEA /* NetworkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53330A2534BC4200E86AEA /* NetworkUtilities.swift */; };
+		7F53334E2534ED3200E86AEA /* NetworkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53330A2534BC4200E86AEA /* NetworkUtilities.swift */; };
+		7F5333522534ED3500E86AEA /* NetworkingParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332D625320C9A00E86AEA /* NetworkingParser.swift */; };
+		7F5333562534ED3600E86AEA /* NetworkingParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332D625320C9A00E86AEA /* NetworkingParser.swift */; };
+		7F53335A2534ED3800E86AEA /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332DB25320D8600E86AEA /* APIError.swift */; };
+		7F53335E2534ED3900E86AEA /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332DB25320D8600E86AEA /* APIError.swift */; };
+		7F5333662534ED4000E86AEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F533297253207DA00E86AEA /* Main.storyboard */; };
+		7F5333732534EE0000E86AEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F53329C253207DC00E86AEA /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		7F0B21B4253500C50054857C /* HomeListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F53328E253207DA00E86AEA /* UniHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F533291253207DA00E86AEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F533293253207DA00E86AEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +83,7 @@
 		7F5332F32534AE7A00E86AEA /* UniversityModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityModelTests.swift; sourceTree = "<group>"; };
 		7F5333022534B8CD00E86AEA /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
 		7F53330A2534BC4200E86AEA /* NetworkUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtilities.swift; sourceTree = "<group>"; };
+		7F53331C2534E43B00E86AEA /* HomeListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewControllerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +111,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7F0B21B3253500B20054857C /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				7F0B21B4253500C50054857C /* HomeListCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		7F533285253207DA00E86AEA = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +166,7 @@
 		7F5332B2253207DC00E86AEA /* UniHubUITests */ = {
 			isa = PBXGroup;
 			children = (
+				7F53331B2534E41E00E86AEA /* View Controller Tests */,
 				7F5332B3253207DC00E86AEA /* UniHubUITests.swift */,
 				7F5332B5253207DC00E86AEA /* Info.plist */,
 			);
@@ -167,6 +195,7 @@
 		7F5332C625320B1100E86AEA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7F0B21B3253500B20054857C /* Cells */,
 				7F533295253207DA00E86AEA /* HomeListViewController.swift */,
 				7F533297253207DA00E86AEA /* Main.storyboard */,
 			);
@@ -222,6 +251,14 @@
 				7F5333022534B8CD00E86AEA /* APIClientTests.swift */,
 			);
 			path = "Networking Tests";
+			sourceTree = "<group>";
+		};
+		7F53331B2534E41E00E86AEA /* View Controller Tests */ = {
+			isa = PBXGroup;
+			children = (
+				7F53331C2534E43B00E86AEA /* HomeListViewControllerTests.swift */,
+			);
+			path = "View Controller Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,6 +381,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F5333662534ED4000E86AEA /* Main.storyboard in Resources */,
+				7F5333732534EE0000E86AEA /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +401,7 @@
 				7F533294253207DA00E86AEA /* SceneDelegate.swift in Sources */,
 				7F5332EB25347AD400E86AEA /* University.swift in Sources */,
 				7F5332CE25320B6E00E86AEA /* APIClient.swift in Sources */,
+				7F0B21B5253500C50054857C /* HomeListCollectionViewCell.swift in Sources */,
 				7F5332DC25320D8700E86AEA /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,7 +412,13 @@
 			files = (
 				7F5333032534B8CD00E86AEA /* APIClientTests.swift in Sources */,
 				7F5332A9253207DC00E86AEA /* UniHubTests.swift in Sources */,
+				7F5333322534ED0F00E86AEA /* UniversityViewModel.swift in Sources */,
 				7F5332F42534AE7A00E86AEA /* UniversityModelTests.swift in Sources */,
+				7F53334A2534ED3200E86AEA /* NetworkUtilities.swift in Sources */,
+				7F53333A2534ED1200E86AEA /* University.swift in Sources */,
+				7F5333522534ED3500E86AEA /* NetworkingParser.swift in Sources */,
+				7F5333422534ED2100E86AEA /* APIClient.swift in Sources */,
+				7F53335A2534ED3800E86AEA /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +427,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F5332B4253207DC00E86AEA /* UniHubUITests.swift in Sources */,
+				7F53332E2534ECF600E86AEA /* HomeListViewController.swift in Sources */,
+				7F5333362534ED1000E86AEA /* UniversityViewModel.swift in Sources */,
+				7F53331D2534E43B00E86AEA /* HomeListViewControllerTests.swift in Sources */,
+				7F53334E2534ED3200E86AEA /* NetworkUtilities.swift in Sources */,
+				7F53333E2534ED1300E86AEA /* University.swift in Sources */,
+				7F5333562534ED3600E86AEA /* NetworkingParser.swift in Sources */,
+				7F5333462534ED2200E86AEA /* APIClient.swift in Sources */,
+				7F53335E2534ED3900E86AEA /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -550,7 +604,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.chrismclearnon.UniHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -569,7 +623,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.chrismclearnon.UniHub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

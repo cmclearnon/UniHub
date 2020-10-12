@@ -55,6 +55,7 @@ extension APIClient: APICallable {
     }
     
     private func fetchData<T: Decodable>(with url: URL?) -> AnyPublisher<T, Error> {
+        
         fetch(with: url)
             .decode(type: T.self, decoder: JSONDecoder())
             .mapError { error -> APIError in
