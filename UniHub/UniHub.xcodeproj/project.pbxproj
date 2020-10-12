@@ -20,6 +20,7 @@
 		7F5332DC25320D8700E86AEA /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332DB25320D8600E86AEA /* APIError.swift */; };
 		7F5332E2253239CF00E86AEA /* UniversityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332E1253239CF00E86AEA /* UniversityViewModel.swift */; };
 		7F5332EB25347AD400E86AEA /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332EA25347AD300E86AEA /* University.swift */; };
+		7F5332F42534AE7A00E86AEA /* UniversityModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332F32534AE7A00E86AEA /* UniversityModelTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		7F5332DB25320D8600E86AEA /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		7F5332E1253239CF00E86AEA /* UniversityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityViewModel.swift; sourceTree = "<group>"; };
 		7F5332EA25347AD300E86AEA /* University.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = University.swift; sourceTree = "<group>"; };
+		7F5332F32534AE7A00E86AEA /* UniversityModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityModelTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +124,7 @@
 		7F5332A7253207DC00E86AEA /* UniHubTests */ = {
 			isa = PBXGroup;
 			children = (
+				7F5332F22534AE5B00E86AEA /* Model Tests */,
 				7F5332A8253207DC00E86AEA /* UniHubTests.swift */,
 				7F5332AA253207DC00E86AEA /* Info.plist */,
 			);
@@ -197,6 +200,14 @@
 				7F5332EA25347AD300E86AEA /* University.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7F5332F22534AE5B00E86AEA /* Model Tests */ = {
+			isa = PBXGroup;
+			children = (
+				7F5332F32534AE7A00E86AEA /* UniversityModelTests.swift */,
+			);
+			path = "Model Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,6 +356,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F5332A9253207DC00E86AEA /* UniHubTests.swift in Sources */,
+				7F5332F42534AE7A00E86AEA /* UniversityModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

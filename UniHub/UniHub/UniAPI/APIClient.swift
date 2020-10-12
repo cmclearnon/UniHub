@@ -31,7 +31,6 @@ extension APIClient: APICallable {
     }
     
     private func fetch(with endpoint: URL?) -> AnyPublisher<Data, Error> {
-        print("Fetching from API...")
         /// Try to safely cast the passed in URL
         /// If fails: Return a network error as a Fail type, then erase its type to AnyPublisher
         guard let url = endpoint else {
@@ -60,7 +59,6 @@ extension APIClient: APICallable {
     
     private func fetchData<T: Decodable>(with url: URL?) -> AnyPublisher<T, Error> {
         fetch(with: url)
-            .print("Attempting to decode...")
             .decode(type: T.self, decoder: JSONDecoder())
             .mapError { error -> APIError in
                 return .parsing(description: "Parsing error: \(error.localizedDescription)")

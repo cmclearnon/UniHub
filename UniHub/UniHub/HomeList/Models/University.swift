@@ -23,8 +23,12 @@ extension University {
         case webPages = "web_pages"
         case name = "name"
         case alphaTwoCode = "alpha_two_code"
-        case stateProvince = "state_province"
+        case stateProvince = "state-province"
         case domains = "domains"
         case country = "country"
     }
+}
+
+extension University: Equatable {
+    
 }
