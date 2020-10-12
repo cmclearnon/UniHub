@@ -9,40 +9,39 @@ import Foundation
 import Combine
 
 class UniversityViewModel: ObservableObject, Identifiable {
-    @Published var universityList: [UniListResponse]? {
+    @Published var universityList: [University]? {
         didSet {
             didChange.send(universityList ?? [])
         }
     }
     private let client = APIClient.sharedInstance()
-    private var disposables = Set<AnyCancellable>()
+    private var subscriber: AnyCancellable?
     
-    let didChange = PassthroughSubject<[UniListResponse], Never>()
+    let didChange = PassthroughSubject<[University], Never>()
     
     init() {
         self.fetchUniversityList()
     }
     
     func fetchUniversityList() {
-        client.listAllUniversities()
-            .mapError({ (error) -> APIError in
-                return .network(description: "Error fetching data from API: \(error.localizedDescription)")
-            })
+        subscriber?.cancel()
+        subscriber = client.listAllUniversities(with: client.getAllUniversitiesURL())
             .receive(on: DispatchQueue.main)
             .sink(
-                receiveCompletion: { [weak self] value in
-                    guard let self = self else { return }
-                    switch value {
-                    case .failure:
+                receiveCompletion: { completion in
+                    print("In completion")
+                    switch completion {
+                    case .failure(let error):
+                        print("Failure: \(error)")
                         self.universityList = []
                     case .finished:
+                        print("Finished")
                         break
                     }
-                }, receiveValue: { [weak self] universities in
-                    guard let self = self else { return }
+                }, receiveValue: { universities in
+                    print(universities[0])
                     self.universityList = universities
-                    print(self.universityList?[0])
                 }
-            ).store(in: &disposables)
+            )
     }
 }

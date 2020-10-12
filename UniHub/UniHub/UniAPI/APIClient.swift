@@ -8,17 +8,8 @@
 import Foundation
 import Combine
 
-struct UniListResponse: Codable {
-    let webPages: [String]
-    let name: String?
-    let alphaTwoCode: String?
-    let stateProvince: String?
-    let domains: [String]?
-    let country: String?
-}
-
 protocol APICallable {
-    func listAllUniversities() -> AnyPublisher<[UniListResponse], APIError>
+    func listAllUniversities(with url: URL?) -> AnyPublisher<[University], Error>
 }
 
 class APIClient {
@@ -35,12 +26,12 @@ class APIClient {
 }
 
 extension APIClient: APICallable {
-    func listAllUniversities() -> AnyPublisher<[UniListResponse], APIError> {
-        return fetch(with: getAllUniversitiesURL())
+    func listAllUniversities(with url: URL?) -> AnyPublisher<[University], Error> {
+        return fetchData(with: url)
     }
     
-    private func fetch<T: Decodable>(with endpoint: URL?) -> AnyPublisher<T, APIError> {
-        
+    private func fetch(with endpoint: URL?) -> AnyPublisher<Data, Error> {
+        print("Fetching from API...")
         /// Try to safely cast the passed in URL
         /// If fails: Return a network error as a Fail type, then erase its type to AnyPublisher
         guard let url = endpoint else {
@@ -51,21 +42,34 @@ extension APIClient: APICallable {
         /// URLSession.dataTaskPublisher for fetching Dog API data
         /// Returns either tuple (Data, URLResponse) or URLError
         return URLSession.shared.dataTaskPublisher(for: URLRequest(url: url))
+            .tryMap { data, response in
+                if let httpResponse = response as? HTTPURLResponse, (200..<300).contains(httpResponse.statusCode) == false {
+                    throw APIError.statusCode(response as! HTTPURLResponse)
+                }
+                return data
+            }
             /// Cast error as APIError
             .mapError { error -> APIError in
-                return .network(description: "Network error. Please check your internet connection and try again.")
-            }.flatMap(maxPublishers: .max(1)) { result in
-                decode(result.data)
+                return .network(description: "Network error: \(error.localizedDescription)")
             }
-        
+
             /// Use eraseToAnyPublisher to erase the return type to AnyPublisher
             /// to prevent leak of implementation details
-            .receive(on: DispatchQueue.main)
+            .eraseToAnyPublisher()
+    }
+    
+    private func fetchData<T: Decodable>(with url: URL?) -> AnyPublisher<T, Error> {
+        fetch(with: url)
+            .print("Attempting to decode...")
+            .decode(type: T.self, decoder: JSONDecoder())
+            .mapError { error -> APIError in
+                return .parsing(description: "Parsing error: \(error.localizedDescription)")
+            }
             .eraseToAnyPublisher()
     }
 }
 
-private extension APIClient {
+extension APIClient {
     private struct Domains {
         static let baseURL = "https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json"
     }
