@@ -17,11 +17,14 @@ class HomeListCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = UIColor.white
+    let nameLabel: CellLabel = {
+        let label = CellLabel(frame: .zero)
+        label.backgroundColor = UIColor.white
+        label.textColor = UIColor.black
         label.font = UIFont.boldSystemFont(ofSize: 25)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.layer.cornerCurve = .continuous
+        label.layer.masksToBounds = true
         return label
     }()
     

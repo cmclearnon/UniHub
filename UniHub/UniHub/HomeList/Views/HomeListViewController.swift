@@ -7,8 +7,9 @@
 
 import UIKit
 import Combine
+import CombineDataSources
 
-class HomeListViewController: UIViewController, UICollectionViewDelegate {
+class HomeListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     private var viewModel: UniversityViewModel?
     
@@ -49,7 +50,7 @@ class HomeListViewController: UIViewController, UICollectionViewDelegate {
         setupViews()
         self.viewModel = UniversityViewModel(delegate: self)
         self.collectionView.delegate = self
-        self.collectionView.dataSource = self
+        self.setupDataSource()
     }
 }
 
@@ -80,16 +81,27 @@ extension HomeListViewController {
     }
 }
 
-extension HomeListViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.viewModel?.getViewModelListCount() ?? 0
-    }
+extension HomeListViewController {
+//extension HomeListViewController: UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return self.viewModel?.getViewModelListCount() ?? 0
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeListCollectionViewCell
+//        cell.backgroundColor = .gray
+//        return cell
+//    }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeListCollectionViewCell
-        cell.backgroundColor = .gray
-        cell.nameString = "Testing"
-        return cell
+    fileprivate func setupDataSource() {
+        viewModel?.didChange
+            .map{ $0 }
+            .subscribe(collectionView.itemsSubscriber(cellIdentifier: "Cell", cellType: HomeListCollectionViewCell.self, cellConfig: { cell, indexPath, university in
+                cell.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
+                cell.nameString = university.name
+                cell.layer.cornerRadius = 25
+            }))
+        self.collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

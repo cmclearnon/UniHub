@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct University: Codable {
+struct University: Codable, Hashable {
     let webPages: [String]
     let name: String?
     let alphaTwoCode: String
