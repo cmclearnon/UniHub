@@ -8,23 +8,22 @@
 import UIKit
 import WebKit
 
-class WKWebViewController: UIViewController {
+class WKWebViewController: UIViewController, WKUIDelegate {
     
     private var webPage: String
-    fileprivate let webView = WKWebView()
+    fileprivate var webView: WKWebView
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.webView.load(self.webPage)
     }
-//
-//    convenience init() {
-//        self.init(webPageString: nil)
-//    }
     
     init(withWebPage webPageString: String) {
         self.webPage = webPageString
+        let webConfiguration = WKWebViewConfiguration()
+        webView = WKWebView(frame: .zero, configuration: webConfiguration)
         super.init(nibName: nil, bundle: nil)
+        view.backgroundColor = UIColor.systemBackground
     }
     
     required init?(coder: NSCoder) {
@@ -32,6 +31,11 @@ class WKWebViewController: UIViewController {
     }
     
     override func loadView() {
+        webView.uiDelegate = self
         self.view = webView
+    }
+    
+    func getWebView() -> WKWebView {
+        return webView
     }
 }
