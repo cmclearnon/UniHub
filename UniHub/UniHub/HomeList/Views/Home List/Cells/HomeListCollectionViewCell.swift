@@ -17,11 +17,29 @@ class HomeListCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    var locationString: String! {
+        didSet {
+            locationLabel.text = locationString
+        }
+    }
+    
     let nameLabel: CellLabel = {
         let label = CellLabel(frame: .zero)
         label.backgroundColor = UIColor.white
         label.textColor = UIColor.black
         label.font = UIFont.boldSystemFont(ofSize: 25)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        label.layer.cornerCurve = .continuous
+        label.layer.masksToBounds = true
+        return label
+    }()
+    
+    let locationLabel: CellLabel = {
+        let label = CellLabel()
+        label.backgroundColor = UIColor.white
+        label.textColor = UIColor.black
+        label.font = UIFont.boldSystemFont(ofSize: 18)
         label.translatesAutoresizingMaskIntoConstraints = false
         label.layer.cornerCurve = .continuous
         label.layer.masksToBounds = true
@@ -44,8 +62,14 @@ class HomeListCollectionViewCell: UICollectionViewCell {
     
     func addSubviews() {
         contentView.addSubview(nameLabel)
+        contentView.addSubview(locationLabel)
+        
         nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
         nameLabel.trailingAnchor.constraint(equalTo:contentView.trailingAnchor, constant: -10).isActive = true
-        nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20).isActive = true
+        nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20).isActive = true
+        
+        locationLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 15).isActive = true
+        locationLabel.trailingAnchor.constraint(equalTo:contentView.trailingAnchor, constant: -10).isActive = true
+        locationLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20).isActive = true
     }
 }

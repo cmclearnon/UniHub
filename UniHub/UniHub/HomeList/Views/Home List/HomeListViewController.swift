@@ -11,9 +11,9 @@ import CombineDataSources
 
 class HomeListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
-    private var viewModel: UniversityViewModel?
+    private var viewModel: UniversityViewModel!
     
-    fileprivate let collectionView: UICollectionView = {
+    private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -24,9 +24,9 @@ class HomeListViewController: UIViewController, UICollectionViewDelegate, UIColl
         return cv
     }()
     
-    fileprivate let connectionWarningMessageView: UILabel = {
+    private let connectionWarningMessageView: UILabel = {
        let lb = UILabel()
-        lb.text = "Unable to load images. Please check your internet connection and try again."
+        lb.text = "Unable to load universities. Please check your internet connection and try again."
         lb.sizeToFit()
         lb.numberOfLines = 0
         lb.textAlignment = .center
@@ -34,7 +34,7 @@ class HomeListViewController: UIViewController, UICollectionViewDelegate, UIColl
         return lb
     }()
     
-    fileprivate let activityIndicatorView: UIActivityIndicatorView = {
+    private let activityIndicatorView: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.hidesWhenStopped = true
         return indicator
@@ -79,26 +79,21 @@ extension HomeListViewController {
     func getCollectionView() -> UICollectionView {
         return collectionView
     }
+    
+    func getViewMode() -> UniversityViewModel {
+        return viewModel!
+    }
 }
 
 extension HomeListViewController {
-//extension HomeListViewController: UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return self.viewModel?.getViewModelListCount() ?? 0
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! HomeListCollectionViewCell
-//        cell.backgroundColor = .gray
-//        return cell
-//    }
     
     fileprivate func setupDataSource() {
-        viewModel?.didChange
+        viewModel.didChange
             .map{ $0 }
             .subscribe(collectionView.itemsSubscriber(cellIdentifier: "Cell", cellType: HomeListCollectionViewCell.self, cellConfig: { cell, indexPath, university in
                 cell.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
                 cell.nameString = university.name
+                cell.locationString = "\(university.country): \(String(describing: university.stateProvince))"
                 cell.layer.cornerRadius = 25
             }))
         self.collectionView.reloadData()
@@ -111,6 +106,22 @@ extension HomeListViewController {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return CGFloat(30)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let selectedWebPage = viewModel.universityList?[indexPath.row].webPages[0] else {
+            displayAlert(withMessage: "Unable to load webpage. Please try again later or contact Customer Support.")
+            return
+        }
+        let vc = WKWebViewController(withWebPage: selectedWebPage)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension HomeListViewController {
+    func displayAlert(withMessage message: String) {
+        let alert = createAlert(withMessage: message)
+        self.present(alert, animated: true, completion: nil)
+    }
 }
 
 extension HomeListViewController: UniversityViewModelEventsDelegate {
@@ -121,7 +132,7 @@ extension HomeListViewController: UniversityViewModelEventsDelegate {
             activityIndicatorView.stopAnimating()
         }
     }
-    
+
     func updateUIContent() {
         if (collectionView.isHidden == false) {
             collectionView.isHidden = true

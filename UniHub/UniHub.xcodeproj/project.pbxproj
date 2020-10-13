@@ -11,6 +11,8 @@
 		7F0B21C825350C9D0054857C /* CellLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B21C725350C9D0054857C /* CellLabel.swift */; };
 		7F0B21CC253510D20054857C /* CellLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B21C725350C9D0054857C /* CellLabel.swift */; };
 		7F0B21D0253510D50054857C /* HomeListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B21B4253500C50054857C /* HomeListCollectionViewCell.swift */; };
+		7F0B21E92535AF190054857C /* WKWebView+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B21E82535AF190054857C /* WKWebView+Load.swift */; };
+		7F0B21EA2535AF190054857C /* WKWebView+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B21E82535AF190054857C /* WKWebView+Load.swift */; };
 		7F533292253207DA00E86AEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F533291253207DA00E86AEA /* AppDelegate.swift */; };
 		7F533294253207DA00E86AEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F533293253207DA00E86AEA /* SceneDelegate.swift */; };
 		7F533296253207DA00E86AEA /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F533295253207DA00E86AEA /* HomeListViewController.swift */; };
@@ -43,6 +45,11 @@
 		7F53335E2534ED3900E86AEA /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332DB25320D8600E86AEA /* APIError.swift */; };
 		7F5333662534ED4000E86AEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F533297253207DA00E86AEA /* Main.storyboard */; };
 		7F5333732534EE0000E86AEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F53329C253207DC00E86AEA /* LaunchScreen.storyboard */; };
+		7FAFFCDE2535B73F00C876F0 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCDC2535B73F00C876F0 /* WKWebViewController.swift */; };
+		7FAFFCE42535B76700C876F0 /* WKWebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FAFFCE32535B76700C876F0 /* WKWebViewController.storyboard */; };
+		7FAFFCE52535B76700C876F0 /* WKWebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FAFFCE32535B76700C876F0 /* WKWebViewController.storyboard */; };
+		7FAFFCF02535BAD000C876F0 /* CreateAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCEF2535BAD000C876F0 /* CreateAlert.swift */; };
+		7FAFFCF12535BAD000C876F0 /* CreateAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCEF2535BAD000C876F0 /* CreateAlert.swift */; };
 		89B0B515B168E7354C605327 /* Pods_UniHub_UniHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD4DDBC72E92191BF63014 /* Pods_UniHub_UniHubUITests.framework */; };
 		99BEAFFC13AD09E876E18CDF /* Pods_UniHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4142AE38106AF655483BE0 /* Pods_UniHubTests.framework */; };
 		BFD139DBE238BCA27B278D14 /* Pods_UniHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFFE3F9B6E6D7CF90DF5495 /* Pods_UniHub.framework */; };
@@ -72,6 +79,7 @@
 		619FCB1D79F65A2BE3A57EBE /* Pods-UniHub-UniHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniHub-UniHubUITests.release.xcconfig"; path = "Target Support Files/Pods-UniHub-UniHubUITests/Pods-UniHub-UniHubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F0B21B4253500C50054857C /* HomeListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F0B21C725350C9D0054857C /* CellLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellLabel.swift; sourceTree = "<group>"; };
+		7F0B21E82535AF190054857C /* WKWebView+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Load.swift"; sourceTree = "<group>"; };
 		7F53328E253207DA00E86AEA /* UniHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F533291253207DA00E86AEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F533293253207DA00E86AEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +103,9 @@
 		7F5333022534B8CD00E86AEA /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
 		7F53330A2534BC4200E86AEA /* NetworkUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtilities.swift; sourceTree = "<group>"; };
 		7F53331C2534E43B00E86AEA /* HomeListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewControllerTests.swift; sourceTree = "<group>"; };
+		7FAFFCDC2535B73F00C876F0 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
+		7FAFFCE32535B76700C876F0 /* WKWebViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WKWebViewController.storyboard; sourceTree = "<group>"; };
+		7FAFFCEF2535BAD000C876F0 /* CreateAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlert.swift; sourceTree = "<group>"; };
 		86B46E1591ABA9554D065E86 /* Pods-UniHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniHubTests.release.xcconfig"; path = "Target Support Files/Pods-UniHubTests/Pods-UniHubTests.release.xcconfig"; sourceTree = "<group>"; };
 		9CE7282EF1D53B910244F128 /* Pods-UniHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniHubTests.debug.xcconfig"; path = "Target Support Files/Pods-UniHubTests/Pods-UniHubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ACFFE3F9B6E6D7CF90DF5495 /* Pods_UniHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,9 +154,28 @@
 		7F0B21B3253500B20054857C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				7F0B21C725350C9D0054857C /* CellLabel.swift */,
 				7F0B21B4253500C50054857C /* HomeListCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		7F0B21D42535AC800054857C /* Web Pages */ = {
+			isa = PBXGroup;
+			children = (
+				7F0B21E72535AF050054857C /* Extensions */,
+				7FAFFCDC2535B73F00C876F0 /* WKWebViewController.swift */,
+				7FAFFCE32535B76700C876F0 /* WKWebViewController.storyboard */,
+			);
+			path = "Web Pages";
+			sourceTree = "<group>";
+		};
+		7F0B21E72535AF050054857C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7F0B21E82535AF190054857C /* WKWebView+Load.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		7F533285253207DA00E86AEA = {
@@ -226,10 +256,9 @@
 		7F5332C625320B1100E86AEA /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				7F0B21B3253500B20054857C /* Cells */,
-				7F533295253207DA00E86AEA /* HomeListViewController.swift */,
-				7F533297253207DA00E86AEA /* Main.storyboard */,
-				7F0B21C725350C9D0054857C /* CellLabel.swift */,
+				7FAFFCEE2535BABB00C876F0 /* Utilities */,
+				7FAFFCEC2535BA4800C876F0 /* Home List */,
+				7F0B21D42535AC800054857C /* Web Pages */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -291,6 +320,24 @@
 				7F53331C2534E43B00E86AEA /* HomeListViewControllerTests.swift */,
 			);
 			path = "View Controller Tests";
+			sourceTree = "<group>";
+		};
+		7FAFFCEC2535BA4800C876F0 /* Home List */ = {
+			isa = PBXGroup;
+			children = (
+				7F0B21B3253500B20054857C /* Cells */,
+				7F533295253207DA00E86AEA /* HomeListViewController.swift */,
+				7F533297253207DA00E86AEA /* Main.storyboard */,
+			);
+			path = "Home List";
+			sourceTree = "<group>";
+		};
+		7FAFFCEE2535BABB00C876F0 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				7FAFFCEF2535BAD000C876F0 /* CreateAlert.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 		F2C7347E1015A6960B13F7CD /* Pods */ = {
@@ -417,6 +464,7 @@
 				7F53329E253207DC00E86AEA /* LaunchScreen.storyboard in Resources */,
 				7F53329B253207DC00E86AEA /* Assets.xcassets in Resources */,
 				7F533299253207DA00E86AEA /* Main.storyboard in Resources */,
+				7FAFFCE42535B76700C876F0 /* WKWebViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -432,6 +480,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F5333662534ED4000E86AEA /* Main.storyboard in Resources */,
+				7FAFFCE52535B76700C876F0 /* WKWebViewController.storyboard in Resources */,
 				7F5333732534EE0000E86AEA /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -551,9 +600,12 @@
 				7F5332D725320C9A00E86AEA /* NetworkingParser.swift in Sources */,
 				7F533292253207DA00E86AEA /* AppDelegate.swift in Sources */,
 				7F5332E2253239CF00E86AEA /* UniversityViewModel.swift in Sources */,
+				7F0B21E92535AF190054857C /* WKWebView+Load.swift in Sources */,
 				7F533294253207DA00E86AEA /* SceneDelegate.swift in Sources */,
 				7F0B21C825350C9D0054857C /* CellLabel.swift in Sources */,
 				7F5332EB25347AD400E86AEA /* University.swift in Sources */,
+				7FAFFCF02535BAD000C876F0 /* CreateAlert.swift in Sources */,
+				7FAFFCDE2535B73F00C876F0 /* WKWebViewController.swift in Sources */,
 				7F5332CE25320B6E00E86AEA /* APIClient.swift in Sources */,
 				7F0B21B5253500C50054857C /* HomeListCollectionViewCell.swift in Sources */,
 				7F5332DC25320D8700E86AEA /* APIError.swift in Sources */,
@@ -584,7 +636,9 @@
 				7F5332B4253207DC00E86AEA /* UniHubUITests.swift in Sources */,
 				7F53332E2534ECF600E86AEA /* HomeListViewController.swift in Sources */,
 				7F5333362534ED1000E86AEA /* UniversityViewModel.swift in Sources */,
+				7FAFFCF12535BAD000C876F0 /* CreateAlert.swift in Sources */,
 				7F53331D2534E43B00E86AEA /* HomeListViewControllerTests.swift in Sources */,
+				7F0B21EA2535AF190054857C /* WKWebView+Load.swift in Sources */,
 				7F53334E2534ED3200E86AEA /* NetworkUtilities.swift in Sources */,
 				7F53333E2534ED1300E86AEA /* University.swift in Sources */,
 				7F5333562534ED3600E86AEA /* NetworkingParser.swift in Sources */,
