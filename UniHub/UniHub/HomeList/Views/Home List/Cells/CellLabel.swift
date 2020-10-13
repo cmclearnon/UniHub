@@ -13,7 +13,8 @@ class CellLabel: UILabel {
     override func layoutSubviews() {
         super.layoutSubviews()
         clipsToBounds = true
-        self.layer.cornerCurve = .continuous
+        self.layer.masksToBounds = true
+        self.layer.cornerRadius = 10
     }
     
     override func drawText(in rect: CGRect) {

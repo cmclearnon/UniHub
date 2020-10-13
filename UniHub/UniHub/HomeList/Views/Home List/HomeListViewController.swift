@@ -91,9 +91,11 @@ extension HomeListViewController {
         viewModel.didChange
             .map{ $0 }
             .subscribe(collectionView.itemsSubscriber(cellIdentifier: "Cell", cellType: HomeListCollectionViewCell.self, cellConfig: { cell, indexPath, university in
-                cell.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
+                cell.backgroundColor = UIColor.white
                 cell.nameString = university.name
-                cell.locationString = "\(university.country): \(String(describing: university.stateProvince))"
+                cell.locationString = "\(university.country)"
+//                cell.locationLabel.sizeToFit()
+//                print(cell.locationLabel.preferredMaxLayoutWidth)
                 cell.layer.cornerRadius = 25
             }))
         self.collectionView.reloadData()

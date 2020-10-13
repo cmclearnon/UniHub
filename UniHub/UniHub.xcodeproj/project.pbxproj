@@ -52,6 +52,8 @@
 		7FAFFCF12535BAD000C876F0 /* CreateAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCEF2535BAD000C876F0 /* CreateAlert.swift */; };
 		7FAFFD092535BD3800C876F0 /* CreateAlertViewUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD082535BD3800C876F0 /* CreateAlertViewUtilityTests.swift */; };
 		7FAFFD102535BF6600C876F0 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCDC2535B73F00C876F0 /* WKWebViewController.swift */; };
+		7FAFFD1C2535DB9E00C876F0 /* CellMainContentsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD1B2535DB9E00C876F0 /* CellMainContentsContainerView.swift */; };
+		7FAFFD1D2535DB9E00C876F0 /* CellMainContentsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD1B2535DB9E00C876F0 /* CellMainContentsContainerView.swift */; };
 		89B0B515B168E7354C605327 /* Pods_UniHub_UniHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD4DDBC72E92191BF63014 /* Pods_UniHub_UniHubUITests.framework */; };
 		99BEAFFC13AD09E876E18CDF /* Pods_UniHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4142AE38106AF655483BE0 /* Pods_UniHubTests.framework */; };
 		BFD139DBE238BCA27B278D14 /* Pods_UniHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFFE3F9B6E6D7CF90DF5495 /* Pods_UniHub.framework */; };
@@ -109,6 +111,7 @@
 		7FAFFCE32535B76700C876F0 /* WKWebViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WKWebViewController.storyboard; sourceTree = "<group>"; };
 		7FAFFCEF2535BAD000C876F0 /* CreateAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlert.swift; sourceTree = "<group>"; };
 		7FAFFD082535BD3800C876F0 /* CreateAlertViewUtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertViewUtilityTests.swift; sourceTree = "<group>"; };
+		7FAFFD1B2535DB9E00C876F0 /* CellMainContentsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellMainContentsContainerView.swift; sourceTree = "<group>"; };
 		86B46E1591ABA9554D065E86 /* Pods-UniHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniHubTests.release.xcconfig"; path = "Target Support Files/Pods-UniHubTests/Pods-UniHubTests.release.xcconfig"; sourceTree = "<group>"; };
 		9CE7282EF1D53B910244F128 /* Pods-UniHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniHubTests.debug.xcconfig"; path = "Target Support Files/Pods-UniHubTests/Pods-UniHubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ACFFE3F9B6E6D7CF90DF5495 /* Pods_UniHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -159,6 +162,7 @@
 			children = (
 				7F0B21C725350C9D0054857C /* CellLabel.swift */,
 				7F0B21B4253500C50054857C /* HomeListCollectionViewCell.swift */,
+				7FAFFD1B2535DB9E00C876F0 /* CellMainContentsContainerView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -617,6 +621,7 @@
 				7F0B21C825350C9D0054857C /* CellLabel.swift in Sources */,
 				7F5332EB25347AD400E86AEA /* University.swift in Sources */,
 				7FAFFCF02535BAD000C876F0 /* CreateAlert.swift in Sources */,
+				7FAFFD1C2535DB9E00C876F0 /* CellMainContentsContainerView.swift in Sources */,
 				7FAFFCDE2535B73F00C876F0 /* WKWebViewController.swift in Sources */,
 				7F5332CE25320B6E00E86AEA /* APIClient.swift in Sources */,
 				7F0B21B5253500C50054857C /* HomeListCollectionViewCell.swift in Sources */,
@@ -651,6 +656,7 @@
 				7F53332E2534ECF600E86AEA /* HomeListViewController.swift in Sources */,
 				7F5333362534ED1000E86AEA /* UniversityViewModel.swift in Sources */,
 				7FAFFCF12535BAD000C876F0 /* CreateAlert.swift in Sources */,
+				7FAFFD1D2535DB9E00C876F0 /* CellMainContentsContainerView.swift in Sources */,
 				7F53331D2534E43B00E86AEA /* HomeListViewControllerTests.swift in Sources */,
 				7F0B21EA2535AF190054857C /* WKWebView+Load.swift in Sources */,
 				7F53334E2534ED3200E86AEA /* NetworkUtilities.swift in Sources */,
