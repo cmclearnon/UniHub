@@ -17,7 +17,7 @@ class WKWebViewController: UIViewController {
         super.viewDidLoad()
         self.webView.load(self.webPage)
     }
-//    
+//
 //    convenience init() {
 //        self.init(webPageString: nil)
 //    }

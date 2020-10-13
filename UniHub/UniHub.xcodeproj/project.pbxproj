@@ -50,6 +50,8 @@
 		7FAFFCE52535B76700C876F0 /* WKWebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FAFFCE32535B76700C876F0 /* WKWebViewController.storyboard */; };
 		7FAFFCF02535BAD000C876F0 /* CreateAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCEF2535BAD000C876F0 /* CreateAlert.swift */; };
 		7FAFFCF12535BAD000C876F0 /* CreateAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCEF2535BAD000C876F0 /* CreateAlert.swift */; };
+		7FAFFD092535BD3800C876F0 /* CreateAlertViewUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD082535BD3800C876F0 /* CreateAlertViewUtilityTests.swift */; };
+		7FAFFD102535BF6600C876F0 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCDC2535B73F00C876F0 /* WKWebViewController.swift */; };
 		89B0B515B168E7354C605327 /* Pods_UniHub_UniHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD4DDBC72E92191BF63014 /* Pods_UniHub_UniHubUITests.framework */; };
 		99BEAFFC13AD09E876E18CDF /* Pods_UniHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4142AE38106AF655483BE0 /* Pods_UniHubTests.framework */; };
 		BFD139DBE238BCA27B278D14 /* Pods_UniHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFFE3F9B6E6D7CF90DF5495 /* Pods_UniHub.framework */; };
@@ -106,6 +108,7 @@
 		7FAFFCDC2535B73F00C876F0 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		7FAFFCE32535B76700C876F0 /* WKWebViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WKWebViewController.storyboard; sourceTree = "<group>"; };
 		7FAFFCEF2535BAD000C876F0 /* CreateAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlert.swift; sourceTree = "<group>"; };
+		7FAFFD082535BD3800C876F0 /* CreateAlertViewUtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertViewUtilityTests.swift; sourceTree = "<group>"; };
 		86B46E1591ABA9554D065E86 /* Pods-UniHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniHubTests.release.xcconfig"; path = "Target Support Files/Pods-UniHubTests/Pods-UniHubTests.release.xcconfig"; sourceTree = "<group>"; };
 		9CE7282EF1D53B910244F128 /* Pods-UniHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniHubTests.debug.xcconfig"; path = "Target Support Files/Pods-UniHubTests/Pods-UniHubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		ACFFE3F9B6E6D7CF90DF5495 /* Pods_UniHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -317,6 +320,7 @@
 		7F53331B2534E41E00E86AEA /* View Controller Tests */ = {
 			isa = PBXGroup;
 			children = (
+				7FAFFD072535BD0E00C876F0 /* View Utilities Tests */,
 				7F53331C2534E43B00E86AEA /* HomeListViewControllerTests.swift */,
 			);
 			path = "View Controller Tests";
@@ -338,6 +342,14 @@
 				7FAFFCEF2535BAD000C876F0 /* CreateAlert.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		7FAFFD072535BD0E00C876F0 /* View Utilities Tests */ = {
+			isa = PBXGroup;
+			children = (
+				7FAFFD082535BD3800C876F0 /* CreateAlertViewUtilityTests.swift */,
+			);
+			path = "View Utilities Tests";
 			sourceTree = "<group>";
 		};
 		F2C7347E1015A6960B13F7CD /* Pods */ = {
@@ -632,8 +644,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FAFFD102535BF6600C876F0 /* WKWebViewController.swift in Sources */,
 				7F0B21D0253510D50054857C /* HomeListCollectionViewCell.swift in Sources */,
 				7F5332B4253207DC00E86AEA /* UniHubUITests.swift in Sources */,
+				7FAFFD092535BD3800C876F0 /* CreateAlertViewUtilityTests.swift in Sources */,
 				7F53332E2534ECF600E86AEA /* HomeListViewController.swift in Sources */,
 				7F5333362534ED1000E86AEA /* UniversityViewModel.swift in Sources */,
 				7FAFFCF12535BAD000C876F0 /* CreateAlert.swift in Sources */,
