@@ -12,6 +12,7 @@ import CombineDataSources
 class HomeListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     private var viewModel: UniversityViewModel!
+    private var collectionViewItemsController: CollectionViewItemsController<[[University]]>!
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -92,14 +93,15 @@ extension HomeListViewController {
     
     /// Using CombineDataSources library to set up collectionView as a Subscriber to the viewModel's universityList didChange Publisher
     fileprivate func setupDataSource() {
+        collectionViewItemsController = CollectionViewItemsController<[[University]]>(cellIdentifier: "Cell", cellType: HomeListCollectionViewCell.self) { (cell, indexPath, model) in
+            cell.nameString = model.name
+            cell.locationString = "\(model.country)"
+            cell.domainsList = model.domains
+        }
+        
         viewModel.didChange
             .map{ $0 }
-            .subscribe(collectionView.itemsSubscriber(cellIdentifier: "Cell", cellType: HomeListCollectionViewCell.self, cellConfig: { cell, indexPath, university in
-                cell.nameString = university.name
-                cell.locationString = "\(university.country)"
-                cell.domainsList = university.domains
-            }))
-        self.collectionView.reloadData()
+            .subscribe(collectionView.itemsSubscriber(collectionViewItemsController))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

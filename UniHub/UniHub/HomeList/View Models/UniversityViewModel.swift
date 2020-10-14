@@ -40,7 +40,7 @@ class UniversityViewModel: ObservableObject, Identifiable {
             .sink(
                 receiveCompletion: { completion in
                     switch completion {
-                    case .failure(let error):
+                    case .failure(_):
                         self.universityList = []
                         self.delegate?.updateUIContent()
                         self.delegate?.updateLoadingIndicator()
