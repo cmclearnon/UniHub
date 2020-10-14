@@ -35,6 +35,7 @@ class HomeListViewControllerTests: XCTestCase {
     func testViewControllerIsCollectionViewDelegate() throws {
         XCTAssert(vcUnderTest.conforms(to: UICollectionViewDelegate.self))
         XCTAssertNotNil(vcUnderTest.getCollectionView().delegate)
+        XCTAssert(vcUnderTest.responds(to: #selector(vcUnderTest.collectionView(_:didSelectItemAt:))))
     }
     
     func testViewControllerConformsToCollectionViewDelegateFlowLayout() throws {

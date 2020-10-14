@@ -34,47 +34,24 @@ class APIClientTests: XCTestCase {
 
 class APINetworkUtilitiesTests: XCTestCase {
     
-    var mocks: MockData!
+    var testData: APIClientTestData!
     
     override func setUpWithError() throws {
-        self.mocks = MockData()
+        self.testData = APIClientTestData()
     }
 
     override func tearDownWithError() throws {
-        self.mocks = nil
+        self.testData = nil
     }
     
     func testValidateResponse() {
-        let data200Response = try? UniHub.validateResponse(Data(), self.mocks.validResponse200!)
+        let data200Response = try? UniHub.validateResponse(Data(), self.testData.validResponse200!)
         XCTAssertNotNil(data200Response)
         
-        let data299Response = try? UniHub.validateResponse(Data(), self.mocks.validResponse299!)
+        let data299Response = try? UniHub.validateResponse(Data(), self.testData.validResponse299!)
         XCTAssertNotNil(data299Response)
         
-        XCTAssertThrowsError(try UniHub.validateResponse(Data(), self.mocks.invalidResponse300!))
-        XCTAssertThrowsError(try UniHub.validateResponse(Data(), self.mocks.invalidResponse300!))
-        XCTAssertThrowsError(try UniHub.validateResponse(Data(), self.mocks.invalidResponse404!))
+        XCTAssertThrowsError(try UniHub.validateResponse(Data(), self.testData.invalidResponse300!))
+        XCTAssertThrowsError(try UniHub.validateResponse(Data(), self.testData.invalidResponse404!))
     }
-}
-
-class MockData {
-    let validResponse200 = HTTPURLResponse(url: URL(string: "http://localhost:8080")!,
-                                        statusCode: 200,
-                                        httpVersion: nil,
-                                        headerFields: nil)
-    
-    let validResponse299 = HTTPURLResponse(url: URL(string: "http://localhost:8080")!,
-                                             statusCode: 299,
-                                             httpVersion: nil,
-                                             headerFields: nil)
-    
-    let invalidResponse300 = HTTPURLResponse(url: URL(string: "http://localhost:8080")!,
-                                             statusCode: 300,
-                                             httpVersion: nil,
-                                             headerFields: nil)
-    
-    let invalidResponse404 = HTTPURLResponse(url: URL(string: "http://localhost:8080")!,
-                                             statusCode: 404,
-                                             httpVersion: nil,
-                                             headerFields: nil)
 }

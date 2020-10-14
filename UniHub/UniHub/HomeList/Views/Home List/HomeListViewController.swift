@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  HomeListViewController.swift
 //  UniHub
 //
 //  Created by Chris McLearnon on 10/10/2020.
@@ -12,6 +12,7 @@ import CombineDataSources
 class HomeListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     private var viewModel: UniversityViewModel!
+    private var collectionViewItemsController: CollectionViewItemsController<[[University]]>!
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -52,10 +53,20 @@ class HomeListViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.collectionView.delegate = self
         self.setupDataSource()
     }
+    
+    func getCollectionView() -> UICollectionView {
+        return collectionView
+    }
+    
+    func getViewMode() -> UniversityViewModel {
+        return viewModel
+    }
 }
 
+// View hierarchy & layout setup
 extension HomeListViewController {
     func setupViews() {
+        view.backgroundColor = UIColor.systemBackground
         view.addSubview(collectionView)
         view.addSubview(connectionWarningMessageView)
         view.addSubview(activityIndicatorView)
@@ -63,7 +74,7 @@ extension HomeListViewController {
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         
         connectionWarningMessageView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 40).isActive = true
@@ -75,28 +86,22 @@ extension HomeListViewController {
         activityIndicatorView.center = view.center
         
     }
-    
-    func getCollectionView() -> UICollectionView {
-        return collectionView
-    }
-    
-    func getViewMode() -> UniversityViewModel {
-        return viewModel!
-    }
 }
 
+// UICollectionViewDelegateFlowLayout & CombineDataSources conforming functions
 extension HomeListViewController {
     
+    /// Using CombineDataSources library to set up collectionView as a Subscriber to the viewModel's universityList didChange Publisher
     fileprivate func setupDataSource() {
+        collectionViewItemsController = CollectionViewItemsController<[[University]]>(cellIdentifier: "Cell", cellType: HomeListCollectionViewCell.self) { (cell, indexPath, model) in
+            cell.nameString = model.name
+            cell.locationString = "\(model.country)"
+            cell.domainsList = model.domains
+        }
+        
         viewModel.didChange
             .map{ $0 }
-            .subscribe(collectionView.itemsSubscriber(cellIdentifier: "Cell", cellType: HomeListCollectionViewCell.self, cellConfig: { cell, indexPath, university in
-                cell.backgroundColor = #colorLiteral(red: 0.03921568627, green: 0.5176470588, blue: 1, alpha: 1)
-                cell.nameString = university.name
-                cell.locationString = "\(university.country): \(String(describing: university.stateProvince))"
-                cell.layer.cornerRadius = 25
-            }))
-        self.collectionView.reloadData()
+            .subscribe(collectionView.itemsSubscriber(collectionViewItemsController))
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -117,6 +122,7 @@ extension HomeListViewController {
     }
 }
 
+// Utility function for displaying a UIAlertController view for invalid URL selection
 extension HomeListViewController {
     func displayAlert(withMessage message: String) {
         let alert = createAlert(withMessage: message)
@@ -124,7 +130,10 @@ extension HomeListViewController {
     }
 }
 
+// UniversityViewModelEventsDelegate conforming function implementation
 extension HomeListViewController: UniversityViewModelEventsDelegate {
+    
+    /// Update activityIndicator on viewModel event changes
     func updateLoadingIndicator() {
         if (activityIndicatorView.isAnimating == false) {
             activityIndicatorView.startAnimating()
@@ -133,6 +142,7 @@ extension HomeListViewController: UniversityViewModelEventsDelegate {
         }
     }
 
+    /// Update collectionView on viewModel event changes
     func updateUIContent() {
         if (collectionView.isHidden == false) {
             collectionView.isHidden = true
