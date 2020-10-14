@@ -8,11 +8,13 @@
 import UIKit
 import Combine
 import CombineDataSources
+import Network
 
 class HomeListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     private var viewModel: UniversityViewModel!
     private var collectionViewItemsController: CollectionViewItemsController<[[University]]>!
+    var networkHandler = NetworkHandler.sharedInstance()
     
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -35,6 +37,17 @@ class HomeListViewController: UIViewController, UICollectionViewDelegate, UIColl
         return lb
     }()
     
+    fileprivate let refreshButton: RefreshUIButton = {
+        let button = RefreshUIButton()
+        button.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        button.setTitle("Refresh", for: .normal)
+        button.setTitleColor(.white, for: .normal)
+        button.addTarget(self, action: #selector(refreshPressed(sender:)), for: .touchUpInside)
+        button.layer.cornerRadius = 15
+        button.translatesAutoresizingMaskIntoConstraints = false
+        return button
+    }()
+    
     private let activityIndicatorView: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
         indicator.hidesWhenStopped = true
@@ -43,6 +56,8 @@ class HomeListViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+//        statusDidChange(status: networkHandler.currentStatus)
+//        networkHandler.addObserver(observer: self)
     }
     
     override func viewDidLoad() {
@@ -54,12 +69,24 @@ class HomeListViewController: UIViewController, UICollectionViewDelegate, UIColl
         self.setupDataSource()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        statusDidChange(status: networkHandler.currentStatus)
+        networkHandler.removeObserver(observer: self)
+    }
+    
     func getCollectionView() -> UICollectionView {
         return collectionView
     }
     
     func getViewMode() -> UniversityViewModel {
         return viewModel
+    }
+    
+    @objc func refreshPressed(sender: UIButton!) {
+        self.refreshButton.showLoading()
+        self.viewModel.fetchUniversityList()
+        self.refreshButton.hideLoading()
     }
 }
 
@@ -70,6 +97,7 @@ extension HomeListViewController {
         view.addSubview(collectionView)
         view.addSubview(connectionWarningMessageView)
         view.addSubview(activityIndicatorView)
+        view.addSubview(refreshButton)
         
         collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10).isActive = true
         collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
@@ -83,8 +111,14 @@ extension HomeListViewController {
         connectionWarningMessageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         connectionWarningMessageView.isHidden = true
         
-        activityIndicatorView.center = view.center
+        refreshButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        refreshButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+        refreshButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+        refreshButton.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        refreshButton.isHidden = true
         
+        
+        activityIndicatorView.center = view.center
     }
 }
 
@@ -150,6 +184,27 @@ extension HomeListViewController: UniversityViewModelEventsDelegate {
             collectionView.reloadData()
             collectionView.isHidden = false
         }
+    }
+}
+
+// NetworkHandlerObserver conforming function for actions taken after network status has changed
+extension HomeListViewController: NetworkHandlerObserver {
+    
+    ///Update UI elements displayed depending on network connection & perform necessary actions on View Model
+    func statusDidChange(status: NWPath.Status) {
+        var tempViewModelList: [University] = []
+        viewModel.didChange
+            .map{ tempViewModelList = $0 }
+        
+        if tempViewModelList.isEmpty {
+            self.viewModel.fetchUniversityList()
+            self.connectionWarningMessageView.isHidden = status == .satisfied ? true : false
+            self.refreshButton.isHidden = status == .satisfied ? true : false
+            return
+        }
+        self.collectionView.isHidden = status == .satisfied ? false : true
+        self.connectionWarningMessageView.isHidden = status == .satisfied ? true : false
+        self.refreshButton.isHidden = status == .satisfied ? true : false
     }
 }
 
