@@ -11,9 +11,13 @@ import WebKit
 
 extension WKWebView {
     func load(_ urlString: String) {
+        print("Loading")
         if let url = URL(string: urlString) {
             let request = URLRequest(url: url)
             load(request)
+        } else {
+            print("Cannot load webpage")
+            loadHTMLString("<strong>Page Not Found</strong>", baseURL: nil)
         }
     }
 }

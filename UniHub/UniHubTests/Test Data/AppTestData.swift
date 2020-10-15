@@ -11,7 +11,10 @@ class APIClientTestData {
     let validResponse200 = HTTPURLResponse(url: URL(string: "http://localhost:8080")!,
                                         statusCode: 200,
                                         httpVersion: nil,
-                                        headerFields: nil)
+                                        headerFields: [
+                                            "Content-Type": "application/json",
+                                            "cache-control": "no-cache",
+                                        ])
     
     let validResponse299 = HTTPURLResponse(url: URL(string: "http://localhost:8080")!,
                                              statusCode: 299,
@@ -27,6 +30,41 @@ class APIClientTestData {
                                              statusCode: 404,
                                              httpVersion: nil,
                                              headerFields: nil)
+    
+    let expectedJSONResponse = """
+    [
+        {
+            "web_pages": [
+              "http://www.marywood.edu"
+            ],
+            "name": "Marywood University",
+            "alpha_two_code": "US",
+            "state-province": "Province",
+            "domains": [
+              "marywood.edu"
+            ],
+            "country": "United States"
+        }
+    ]
+    """
+    
+    /// Does not contain closing Array bracket
+    let invalidDataJSONResponse = """
+    [
+        {
+            "web_pages": [
+              "http://www.marywood.edu"
+            ],
+            "name": "Marywood University",
+            "alpha_two_code": "US",
+            "state-province": "Province",
+            "domains": [
+              "marywood.edu"
+            ],
+            "country": "United States"
+        }
+
+    """
 }
 
 class ModelTestData {
@@ -39,7 +77,7 @@ class ModelTestData {
         country: "United States"
     )
 
-    let fixtureCorrectAttributesType = Data("""
+    let validAttributeKeys = Data("""
     {
             "web_pages": [
               "http://www.marywood.edu"
@@ -54,7 +92,7 @@ class ModelTestData {
     }
     """.utf8)
 
-    let fixtureIncorrectAttributeKeyType = Data("""
+    let invalidAttributeKeys = Data("""
     {
         "web_pages": [
           "http://www.marywood.edu"
@@ -69,7 +107,7 @@ class ModelTestData {
     }
     """.utf8)
 
-    let fixtureMissingAttributeKey = Data("""
+    let missingAttributeKeys = Data("""
     {
         "web_pages": [
           "http://www.marywood.edu"

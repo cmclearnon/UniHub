@@ -9,58 +9,88 @@ import Foundation
 import Combine
 
 protocol APICallable {
-    func listAllUniversities(with url: URL?) -> AnyPublisher<[University], Error>
+    func listAllUniversities() -> AnyPublisher<[University], Error>
 }
 
-class APIClient {
-    private static let _sharedInstance = APIClient()
-    private let session: URLSession
+protocol APIDataTaskPublisher {
+    func dataTaskPublisher(for request: URLRequest) -> URLSession.DataTaskPublisher
+}
+
+class APISessionDataPublisher: APIDataTaskPublisher {
+    
+    func dataTaskPublisher(for request: URLRequest) -> URLSession.DataTaskPublisher {
+        return session.dataTaskPublisher(for: request)
+    }
+    
+    private var session: URLSession
     
     init(session: URLSession = .shared) {
         self.session = session
     }
+}
+
+class APIClient: APICallable {
+    private static let _sharedInstance = APIClient()
+    var publisher: APIDataTaskPublisher = APISessionDataPublisher()
+    
+    var timeoutInterval: TimeInterval = 10.0
+    
+    let defaultHeaders = [
+        "Content-Type": "application/json",
+        "cache-control": "no-cache",
+    ]
     
     class func sharedInstance() -> APIClient {
         return _sharedInstance
     }
-}
-
-extension APIClient: APICallable {
-    func listAllUniversities(with url: URL?) -> AnyPublisher<[University], Error> {
-        return fetchData(with: url)
+    
+    private func buildGetRequest(withURL urlString: String) -> URLRequest {
+        guard let url = URL(string: Domains.baseURL) else {
+            fatalError("Invalid API endpoint")
+        }
+        var request = URLRequest(url: url, timeoutInterval: timeoutInterval)
+        request.httpMethod = "GET"
+        request.allHTTPHeaderFields = defaultHeaders
+        return request
     }
     
-    private func fetch(with endpoint: URL?) -> AnyPublisher<Data, Error> {
-        /// Try to safely cast the passed in URL
-        /// If fails: Return a network error as a Fail type, then erase its type to AnyPublisher
-        guard let url = endpoint else {
-            let error = APIError.network(description: "Badly formatted URL: \(String(describing: endpoint)) is an invalid URL.")
-            return Fail(error: error).eraseToAnyPublisher()
-        }
+    func getUniversitiesDataTaskPublisher() -> URLSession.DataTaskPublisher {
+        let request = buildGetRequest(withURL: Domains.baseURL)
+        return publisher.dataTaskPublisher(for: request)
+    }
+//    
+//    func getTestUniversitiesDataTaskPublisher() -> URLSession.DataTaskPublisher {
+//        let request = buildGetRequest(withURL: Domains.testURL)
+//        return publisher.dataTaskPublisher(for: request)
+//    }
+    
+    func listAllUniversities() -> AnyPublisher<[University], Error> {
+        return getRequest(withPublisher: getUniversitiesDataTaskPublisher())
+    }
+    
+//    func listAllUniversitiesTest() -> AnyPublisher<[University], Error> {
+//        return getRequest(withPublisher: getTestUniversitiesDataTaskPublisher())
+//    }
+    
+    func getRequest<T: Decodable>(withPublisher publisher: URLSession.DataTaskPublisher) -> AnyPublisher<T, Error> {
         
-        /// URLSession.dataTaskPublisher for fetching Dog API data
-        /// Returns either tuple (Data, URLResponse) or URLError
-        return URLSession.shared.dataTaskPublisher(for: URLRequest(url: url))
+        return publisher
             .tryMap { data, response in
                 try validateResponse(data, response)
             }
             /// Cast error as APIError
             .mapError { error -> APIError in
+                print("Network error: \(error.localizedDescription)")
                 return .network(description: "Network error: \(error.localizedDescription)")
+            }
+            .decode(type: T.self, decoder: JSONDecoder())
+            .mapError { error -> APIError in
+                print("Parsing error: \(error.localizedDescription)")
+                return .parsing(description: "Parsing error: \(error.localizedDescription)")
             }
 
             /// Use eraseToAnyPublisher to erase the return type to AnyPublisher
             /// to prevent leak of implementation details
-            .eraseToAnyPublisher()
-    }
-    
-    private func fetchData<T: Decodable>(with url: URL?) -> AnyPublisher<T, Error> {
-        
-        fetch(with: url)
-            .decode(type: T.self, decoder: JSONDecoder())
-            .mapError { error -> APIError in
-                return .parsing(description: "Parsing error: \(error.localizedDescription)")
-            }
             .eraseToAnyPublisher()
     }
 }
@@ -68,12 +98,21 @@ extension APIClient: APICallable {
 extension APIClient {
     private struct Domains {
         static let baseURL = "https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json"
+        static let testURL = "http://localhost:8080"
     }
     
-    func getAllUniversitiesURL() -> URL? {
+    func getAllUniversitiesURL() -> URL {
         guard let fullURL = URL(string: Domains.baseURL) else {
             let failureURL = URL(string: "")
-            return failureURL
+            return failureURL!
+        }
+        return fullURL
+    }
+    
+    func getTestURL() -> URL {
+        guard let fullURL = URL(string: Domains.testURL) else {
+            let failureURL = URL(string: "")
+            return failureURL!
         }
         return fullURL
     }

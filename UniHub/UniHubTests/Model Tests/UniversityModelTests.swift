@@ -23,19 +23,19 @@ class UniversityModelCodableTests: XCTestCase {
     }
     
     func testCorrectJSONDecodingIntoModel() throws {
-        let decodedModel = try JSONDecoder().decode(University.self, from: testData.fixtureCorrectAttributesType)
+        let decodedModel = try JSONDecoder().decode(University.self, from: testData.validAttributeKeys)
         XCTAssertEqual(testData.expectedModelInstance, decodedModel)
     }
     
     func testIncorrectAttributeKeyDecoding() throws {
-        let decodedData = try JSONDecoder().decode(University.self, from: testData.fixtureIncorrectAttributeKeyType)
+        let decodedData = try JSONDecoder().decode(University.self, from: testData.invalidAttributeKeys)
         XCTAssertNotEqual(testData.expectedModelInstance.stateProvince, decodedData.stateProvince)
         XCTAssertNotEqual(testData.expectedModelInstance, decodedData)
     }
     
     func testMissingAttributeKeyDecoding() throws {
         let missingKey = "country"
-        AssertThrowsKeyNotFound(missingKey: missingKey, decodingType: University.self, from: testData.fixtureMissingAttributeKey)
+        AssertThrowsKeyNotFound(missingKey: missingKey, decodingType: University.self, from: testData.missingAttributeKeys)
     }
     
     func testModelEncoding() throws {
