@@ -28,7 +28,6 @@ class UniversityViewModel: ObservableObject, Identifiable {
     
     init(delegate: UniversityViewModelEventsDelegate) {
         self.delegate = delegate
-        self.fetchUniversityList()
     }
     
     func fetchUniversityList() {

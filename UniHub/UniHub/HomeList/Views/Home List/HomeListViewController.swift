@@ -69,6 +69,7 @@ class HomeListViewController: UIViewController, UICollectionViewDelegate, UIColl
         // Do any additional setup after loading the view.
         setupViews()
         self.viewModel = UniversityViewModel(delegate: self)
+        self.viewModel.fetchUniversityList()
         self.collectionView.delegate = self
         self.setupDataSource()
     }
