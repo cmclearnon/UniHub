@@ -57,7 +57,7 @@ class HomeListViewController: UIViewController, UICollectionViewDelegate, UIColl
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 //        statusDidChange(status: networkHandler.currentStatus)
-//        networkHandler.addObserver(observer: self)
+        networkHandler.addObserver(observer: self)
     }
     
     override func viewDidLoad() {
@@ -192,19 +192,38 @@ extension HomeListViewController: NetworkHandlerObserver {
     
     ///Update UI elements displayed depending on network connection & perform necessary actions on View Model
     func statusDidChange(status: NWPath.Status) {
-        var tempViewModelList: [University] = []
-        viewModel.didChange
-            .map{ tempViewModelList = $0 }
+        var count = viewModel.getViewModelListCount()
         
-        if tempViewModelList.isEmpty {
-            self.viewModel.fetchUniversityList()
-            self.connectionWarningMessageView.isHidden = status == .satisfied ? true : false
-            self.refreshButton.isHidden = status == .satisfied ? true : false
+        if count == 0 {
+            if status == .satisfied {
+                print("Fetching after connection established")
+                self.viewModel.fetchUniversityList()
+                self.connectionWarningMessageView.isHidden = true
+                self.refreshButton.isHidden = true
+            } else {
+                self.collectionView.isHidden = true
+                self.connectionWarningMessageView.isHidden = false
+                self.refreshButton.isHidden = false
+            }
+//            print("Is empty")
+//            self.viewModel.fetchUniversityList()
+//            self.connectionWarningMessageView.isHidden = status == .satisfied ? true : false
+//            self.refreshButton.isHidden = status == .satisfied ? true : false
             return
+        } else {
+            if status == .requiresConnection || status == .unsatisfied {
+                self.collectionView.isHidden = true
+                self.connectionWarningMessageView.isHidden = false
+                self.refreshButton.isHidden = false
+            } else {
+                self.collectionView.isHidden = false
+                self.connectionWarningMessageView.isHidden = true
+                self.refreshButton.isHidden = true
+            }
         }
-        self.collectionView.isHidden = status == .satisfied ? false : true
-        self.connectionWarningMessageView.isHidden = status == .satisfied ? true : false
-        self.refreshButton.isHidden = status == .satisfied ? true : false
+//        self.collectionView.isHidden = status == .satisfied ? false : true
+//        self.connectionWarningMessageView.isHidden = status == .satisfied ? true : false
+//        self.refreshButton.isHidden = status == .satisfied ? true : false
     }
 }
 

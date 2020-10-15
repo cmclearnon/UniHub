@@ -35,12 +35,13 @@ class UniversityViewModel: ObservableObject, Identifiable {
         delegate?.updateUIContent()
         delegate?.updateLoadingIndicator()
         subscriber?.cancel()
-        subscriber = client.listAllUniversities(with: client.getAllUniversitiesURL())
+        subscriber = client.listAllUniversities()
             .receive(on: DispatchQueue.main)
             .sink(
                 receiveCompletion: { completion in
                     switch completion {
-                    case .failure(_):
+                    case .failure(let error):
+                        print("Error: \(error.localizedDescription)")
                         self.universityList = []
                         self.delegate?.updateUIContent()
                         self.delegate?.updateLoadingIndicator()
