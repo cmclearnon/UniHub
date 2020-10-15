@@ -192,7 +192,7 @@ extension HomeListViewController: NetworkHandlerObserver {
     
     ///Update UI elements displayed depending on network connection & perform necessary actions on View Model
     func statusDidChange(status: NWPath.Status) {
-        var count = viewModel.getViewModelListCount()
+        let count = viewModel.getViewModelListCount()
         
         if count == 0 {
             if status == .satisfied {
