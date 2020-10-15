@@ -7,21 +7,27 @@
 
 import UIKit
 import WebKit
+import Network
 
-class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
+class WKWebViewController: UIViewController, WKUIDelegate {
     
     private var webPage: String
     private var webViewIsLoading: Bool = false
-    private var refreshButtonShouldHide: Bool = false
+    private var connectionEstablished: Bool = true
     fileprivate var webView: WKWebView
+    
+    var networkHandler = NetworkHandler.sharedInstance()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        statusDidChange(status: networkHandler.currentStatus)
+        networkHandler.addObserver(observer: self)
         setupActivityIndicatorNavigationBarButtonItem()
         self.webView.load(self.webPage)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
+        networkHandler.removeObserver(observer: self)
         self.navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -41,11 +47,13 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
         webView.reload()
     }
     
+    /// Set navigationItem.rightBarButtonItem to a Refresh Button
     func setupRefreshNavigationBarButtonItem() {
         let rightButton = UIBarButtonItem(title: "Refresh", style: .plain, target: self, action: #selector(refreshWebView(_:)))
         self.navigationItem.rightBarButtonItem = rightButton
     }
     
+    /// Set navigationItem.rightBarButtonItem to an Activity Indicator
     func setupActivityIndicatorNavigationBarButtonItem() {
         let indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.medium)
         indicator.hidesWhenStopped = true
@@ -53,6 +61,7 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(customView: indicator)
     }
 
+    /// Load the VIew Controller view as the WKWebView
     override func loadView() {
         webView.uiDelegate = self
         webView.navigationDelegate = self
@@ -76,7 +85,9 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
     func getWebView() -> WKWebView {
         return webView
     }
-    
+}
+
+extension WKWebViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
         webViewIsLoading = true
         setupActivityIndicatorNavigationBarButtonItem()
@@ -87,10 +98,28 @@ class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate 
         setupRefreshNavigationBarButtonItem()
     }
     
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+    /// Display HTML error message when the webpage cannot be loaded
+    func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        setupRefreshNavigationBarButtonItem()
         let nserror = error as NSError
-        if nserror.code != NSURLErrorCancelled {
-            webView.loadHTMLString("Page Not Found", baseURL: URL(string: self.webPage))
+        
+        /// Check if its a network error or an internal request error
+        if connectionEstablished == true {
+            if nserror.code != NSURLErrorCancelled {
+                webView.loadHTMLString("<h1>Cannot Load Web Page</h1><h3>Please check your internet connection or the website URL and try again", baseURL: URL(string: webPage))
+            }
+        } else {
+            webView.loadHTMLString("<h1>You Are Not Connected to the Internet</h1><h3>This page can't be displayed because your device is currently offline", baseURL: URL(string: webPage))
+        }
+    }
+}
+
+extension WKWebViewController: NetworkHandlerObserver {
+    func statusDidChange(status: NWPath.Status) {
+        if status == .satisfied {
+            self.connectionEstablished = true
+        } else {
+            self.connectionEstablished = false
         }
     }
 }
