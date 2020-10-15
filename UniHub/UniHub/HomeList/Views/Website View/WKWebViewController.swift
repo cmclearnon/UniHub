@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class WKWebViewController: UIViewController, WKUIDelegate {
+class WKWebViewController: UIViewController, WKUIDelegate, WKNavigationDelegate {
     
     private var webPage: String
     fileprivate var webView: WKWebView
@@ -32,10 +32,22 @@ class WKWebViewController: UIViewController, WKUIDelegate {
     
     override func loadView() {
         webView.uiDelegate = self
+        webView.navigationDelegate = self
         self.view = webView
     }
     
     func getWebView() -> WKWebView {
         return webView
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("Did finish nagivating to: \(webPage)")
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        let nserror = error as NSError
+        if nserror.code != NSURLErrorCancelled {
+            webView.loadHTMLString("Page Not Found", baseURL: URL(string: self.webPage))
+        }
     }
 }
