@@ -14,6 +14,7 @@ class HomeListViewController: UIViewController, UICollectionViewDelegate, UIColl
 
     private var viewModel: UniversityViewModel!
     private var collectionViewItemsController: CollectionViewItemsController<[[University]]>!
+    private var connectionEstablished: Bool = true
     var networkHandler = NetworkHandler.sharedInstance()
     
     private let collectionView: UICollectionView = {
@@ -56,8 +57,11 @@ class HomeListViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        statusDidChange(status: networkHandler.currentStatus)
+        statusDidChange(status: networkHandler.currentStatus)
         networkHandler.addObserver(observer: self)
+        if networkHandler.currentStatus == .satisfied {
+            refreshButton.isHidden = true
+        }
     }
     
     override func viewDidLoad() {
@@ -177,12 +181,13 @@ extension HomeListViewController: UniversityViewModelEventsDelegate {
     }
 
     /// Update collectionView on viewModel event changes
-    func updateUIContent() {
-        if (collectionView.isHidden == false) {
-            collectionView.isHidden = true
-        } else {
-            collectionView.reloadData()
+    func updateUIContent(successful: Bool) {
+        if successful == true {
             collectionView.isHidden = false
+            refreshButton.isHidden = true
+        } else {
+            collectionView.isHidden = true
+            refreshButton.isHidden = false
         }
     }
 }
@@ -190,40 +195,28 @@ extension HomeListViewController: UniversityViewModelEventsDelegate {
 // NetworkHandlerObserver conforming function for actions taken after network status has changed
 extension HomeListViewController: NetworkHandlerObserver {
     
-    ///Update UI elements displayed depending on network connection & perform necessary actions on View Model
+    ///Update UI elements displayed depending on network connection
     func statusDidChange(status: NWPath.Status) {
         let count = viewModel.getViewModelListCount()
-        
-        if count == 0 {
-            if status == .satisfied {
-                print("Fetching after connection established")
-                self.viewModel.fetchUniversityList()
+        if status == .satisfied {
+            if count == 0 {
+                self.collectionView.isHidden = true
                 self.connectionWarningMessageView.isHidden = true
-                self.refreshButton.isHidden = true
-            } else {
-                self.collectionView.isHidden = true
-                self.connectionWarningMessageView.isHidden = false
-                self.refreshButton.isHidden = false
-            }
-//            print("Is empty")
-//            self.viewModel.fetchUniversityList()
-//            self.connectionWarningMessageView.isHidden = status == .satisfied ? true : false
-//            self.refreshButton.isHidden = status == .satisfied ? true : false
-            return
-        } else {
-            if status == .requiresConnection || status == .unsatisfied {
-                self.collectionView.isHidden = true
-                self.connectionWarningMessageView.isHidden = false
                 self.refreshButton.isHidden = false
             } else {
+                self.connectionEstablished = true
                 self.collectionView.isHidden = false
                 self.connectionWarningMessageView.isHidden = true
                 self.refreshButton.isHidden = true
             }
+        } else {
+            self.connectionEstablished = false
+            if count == 0 {
+                self.collectionView.isHidden = true
+                self.connectionWarningMessageView.isHidden = false
+                self.refreshButton.isHidden = false
+            }
         }
-//        self.collectionView.isHidden = status == .satisfied ? false : true
-//        self.connectionWarningMessageView.isHidden = status == .satisfied ? true : false
-//        self.refreshButton.isHidden = status == .satisfied ? true : false
     }
 }
 

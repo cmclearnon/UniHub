@@ -10,7 +10,7 @@ import Combine
 
 protocol UniversityViewModelEventsDelegate: class {
     func updateLoadingIndicator()
-    func updateUIContent()
+    func updateUIContent(successful: Bool)
 }
 
 class UniversityViewModel: ObservableObject, Identifiable {
@@ -32,7 +32,7 @@ class UniversityViewModel: ObservableObject, Identifiable {
     }
     
     func fetchUniversityList() {
-        delegate?.updateUIContent()
+        delegate?.updateUIContent(successful: false)
         delegate?.updateLoadingIndicator()
         subscriber?.cancel()
         subscriber = client.listAllUniversities()
@@ -43,14 +43,14 @@ class UniversityViewModel: ObservableObject, Identifiable {
                     case .failure(let error):
                         print("Error: \(error.localizedDescription)")
                         self.universityList = []
-                        self.delegate?.updateUIContent()
+                        self.delegate?.updateUIContent(successful: false)
                         self.delegate?.updateLoadingIndicator()
                     case .finished:
                         break
                     }
                 }, receiveValue: { universities in
                     self.universityList = universities
-                    self.delegate?.updateUIContent()
+                    self.delegate?.updateUIContent(successful: true)
                     self.delegate?.updateLoadingIndicator()
                 }
             )
