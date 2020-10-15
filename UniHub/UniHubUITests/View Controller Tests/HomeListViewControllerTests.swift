@@ -22,23 +22,20 @@ class HomeListViewControllerTests: XCTestCase {
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testCanInstantiateViewController() throws {
-        XCTAssertNotNil(vcUnderTest)
+        vcUnderTest = nil
     }
     
-    func testCollectionViewInstantiatedAfterViewDidLoad() throws {
+    func test_CollectionViewInstantiatedAfterViewDidLoad() throws {
         XCTAssertNotNil(vcUnderTest.getCollectionView())
     }
     
-    func testViewControllerIsCollectionViewDelegate() throws {
+    func test_ViewControllerIsCollectionViewDelegate() throws {
         XCTAssert(vcUnderTest.conforms(to: UICollectionViewDelegate.self))
         XCTAssertNotNil(vcUnderTest.getCollectionView().delegate)
         XCTAssert(vcUnderTest.responds(to: #selector(vcUnderTest.collectionView(_:didSelectItemAt:))))
     }
     
-    func testViewControllerConformsToCollectionViewDelegateFlowLayout() throws {
+    func test_ViewControllerConformsToCollectionViewDelegateFlowLayout() throws {
         XCTAssert(vcUnderTest.conforms(to: UICollectionViewDelegateFlowLayout.self))
         XCTAssertTrue(vcUnderTest.responds(to: #selector(vcUnderTest.collectionView(_:layout:minimumLineSpacingForSectionAt:))))
         XCTAssertTrue(vcUnderTest.responds(to: #selector(vcUnderTest.collectionView(_:layout:sizeForItemAt:))))

@@ -35,12 +35,12 @@ class UICollectionViewCombineDataSourcesTests: XCTestCase {
         testData = nil
     }
     
-    func testCollectionViewItemsSubscriberDataSourceIsInitialised() throws {
+    func test_CollectionViewItemsSubscriberDataSource_IsInitialised() throws {
         let _ = collectionView.itemsSubscriber(itemsController)
         XCTAssertNotNil(collectionView.dataSource)
     }
     
-    func testCollectionViewRecievingDataSourceEvent() throws {
+    func test_CollectionViewRecievingDataSourceEvent() throws {
         let subscriber = collectionView.itemsSubscriber(itemsController)
         _ = subscriber.receive(testData.dataset1)
         
@@ -48,7 +48,7 @@ class UICollectionViewCombineDataSourcesTests: XCTestCase {
         XCTAssertEqual(2, collectionView.numberOfItems(inSection: 0))
     }
     
-    func testCollectionViewUpdatingItemsAfterMultipleDataSourceEvents() throws {
+    func test_CollectionViewUpdatingItems_AfterMultipleDataSourceEvents() throws {
         let subscriber = collectionView.itemsSubscriber(itemsController)
         _ = subscriber.receive(testData.dataset1)
         _ = subscriber.receive(testData.dataset2 + testData.dataset3)

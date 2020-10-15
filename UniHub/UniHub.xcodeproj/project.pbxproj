@@ -19,7 +19,6 @@
 		7F53329E253207DC00E86AEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F53329C253207DC00E86AEA /* LaunchScreen.storyboard */; };
 		7F5332B4253207DC00E86AEA /* UniHubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332B3253207DC00E86AEA /* UniHubUITests.swift */; };
 		7F5332CE25320B6E00E86AEA /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332CD25320B6E00E86AEA /* APIClient.swift */; };
-		7F5332D725320C9A00E86AEA /* NetworkingParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332D625320C9A00E86AEA /* NetworkingParser.swift */; };
 		7F5332DC25320D8700E86AEA /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332DB25320D8600E86AEA /* APIError.swift */; };
 		7F5332E2253239CF00E86AEA /* UniversityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332E1253239CF00E86AEA /* UniversityViewModel.swift */; };
 		7F5332EB25347AD400E86AEA /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332EA25347AD300E86AEA /* University.swift */; };
@@ -36,8 +35,6 @@
 		7F5333462534ED2200E86AEA /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332CD25320B6E00E86AEA /* APIClient.swift */; };
 		7F53334A2534ED3200E86AEA /* NetworkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53330A2534BC4200E86AEA /* NetworkUtilities.swift */; };
 		7F53334E2534ED3200E86AEA /* NetworkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53330A2534BC4200E86AEA /* NetworkUtilities.swift */; };
-		7F5333522534ED3500E86AEA /* NetworkingParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332D625320C9A00E86AEA /* NetworkingParser.swift */; };
-		7F5333562534ED3600E86AEA /* NetworkingParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332D625320C9A00E86AEA /* NetworkingParser.swift */; };
 		7F53335A2534ED3800E86AEA /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332DB25320D8600E86AEA /* APIError.swift */; };
 		7F53335E2534ED3900E86AEA /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332DB25320D8600E86AEA /* APIError.swift */; };
 		7F5333662534ED4000E86AEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F533297253207DA00E86AEA /* Main.storyboard */; };
@@ -106,7 +103,6 @@
 		7F5332B3253207DC00E86AEA /* UniHubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniHubUITests.swift; sourceTree = "<group>"; };
 		7F5332B5253207DC00E86AEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7F5332CD25320B6E00E86AEA /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		7F5332D625320C9A00E86AEA /* NetworkingParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingParser.swift; sourceTree = "<group>"; };
 		7F5332DB25320D8600E86AEA /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		7F5332E1253239CF00E86AEA /* UniversityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityViewModel.swift; sourceTree = "<group>"; };
 		7F5332EA25347AD300E86AEA /* University.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = University.swift; sourceTree = "<group>"; };
@@ -300,7 +296,6 @@
 		7F5332D525320C8000E86AEA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				7F5332D625320C9A00E86AEA /* NetworkingParser.swift */,
 				7F53330A2534BC4200E86AEA /* NetworkUtilities.swift */,
 				7F822F222536837700DCC63D /* NetworkHandler.swift */,
 			);
@@ -668,7 +663,6 @@
 				7F53330B2534BC4200E86AEA /* NetworkUtilities.swift in Sources */,
 				7FAFFD2225362A2D00C876F0 /* ColourBarView.swift in Sources */,
 				7FAFFD352536508D00C876F0 /* UITestData.swift in Sources */,
-				7F5332D725320C9A00E86AEA /* NetworkingParser.swift in Sources */,
 				7F533292253207DA00E86AEA /* AppDelegate.swift in Sources */,
 				7F5332E2253239CF00E86AEA /* UniversityViewModel.swift in Sources */,
 				7F822F28253684C700DCC63D /* RefreshButton.swift in Sources */,
@@ -697,7 +691,6 @@
 				7F53333A2534ED1200E86AEA /* University.swift in Sources */,
 				7F822F342536E82100DCC63D /* URLProtocolMock.swift in Sources */,
 				7F822F5E2538843600DCC63D /* UniversityViewModelTests.swift in Sources */,
-				7F5333522534ED3500E86AEA /* NetworkingParser.swift in Sources */,
 				7F5333422534ED2100E86AEA /* APIClient.swift in Sources */,
 				7F53335A2534ED3800E86AEA /* APIError.swift in Sources */,
 			);
@@ -722,7 +715,6 @@
 				7F0B21EA2535AF190054857C /* WKWebView+Load.swift in Sources */,
 				7F53334E2534ED3200E86AEA /* NetworkUtilities.swift in Sources */,
 				7F53333E2534ED1300E86AEA /* University.swift in Sources */,
-				7F5333562534ED3600E86AEA /* NetworkingParser.swift in Sources */,
 				7F5333462534ED2200E86AEA /* APIClient.swift in Sources */,
 				7F822F3C2536EA1D00DCC63D /* RefreshButton.swift in Sources */,
 				7F53335E2534ED3900E86AEA /* APIError.swift in Sources */,
