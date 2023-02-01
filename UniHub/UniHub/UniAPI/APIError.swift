@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum APIError: Error {
+enum APIError: Error, Equatable {
     case parsing(description: String)
     case network(description: String)
     case invalidResponse(description: String)

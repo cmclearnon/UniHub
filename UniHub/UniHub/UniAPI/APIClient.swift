@@ -32,14 +32,20 @@ class APIClient {
         return request
     }
     
-    func fetchUniversities(completionHandler: @escaping (Result<[University], Error>) -> Void) {
+    func fetchUniversities(completionHandler: @escaping (Result<[University], APIError>) -> Void) {
         let request = buildGetRequest(withURL: Domains.baseURL)
         let task = URLSession.shared.dataTask(with: request, completionHandler: { data, response, error in
             if let error {
                 completionHandler(.failure(APIError.network(description: "Test network error: \(error)")))
+                return
             }
-            
-            // Validate response
+
+            do {
+                try validateResponseV3(response)
+            } catch {
+                completionHandler(.failure(APIError.statusCode(response as! HTTPURLResponse)))
+                return
+            }
 
             if let data, let universityList = try? JSONDecoder().decode([University].self, from: data) {
                 completionHandler(.success(universityList))
