@@ -76,9 +76,13 @@ class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayo
 
         setupViews()
         self.viewModel = UniversityViewModel(onChange: { [weak self] universities in
+            DispatchQueue.main.sync {
+                self?.activityIndicatorView.isHidden = true
+            }
             self?.univiersitiesDidLoad(universities)
         })
         
+        self.activityIndicatorView.isHidden = false
         self.viewModel.fetchUniversities()
     }
     
@@ -193,26 +197,20 @@ extension HomeListViewController: NetworkHandlerObserver {
     
     ///Update UI elements displayed depending on network connection
     func statusDidChange(status: NWPath.Status) {
-//        let count = viewModel.getViewModelListCount()
-//        if status == .satisfied {
-//            if count == 0 {
-//                self.collectionView.isHidden = true
-//                self.connectionWarningMessageView.isHidden = true
-//                self.refreshButton.isHidden = false
-//            } else {
-//                self.connectionEstablished = true
-//                self.collectionView.isHidden = false
-//                self.connectionWarningMessageView.isHidden = true
-//                self.refreshButton.isHidden = true
-//            }
-//        } else {
-//            self.connectionEstablished = false
-//            if count == 0 {
-//                self.collectionView.isHidden = true
-//                self.connectionWarningMessageView.isHidden = false
-//                self.refreshButton.isHidden = false
-//            }
-//        }
+        let count = viewModel.getViewModelListCount()
+        if status == .satisfied {
+            self.connectionEstablished = true
+            self.collectionView.isHidden = false
+            self.connectionWarningMessageView.isHidden = true
+            self.refreshButton.isHidden = true
+        } else {
+            self.connectionEstablished = false
+            if count == 0 {
+                self.collectionView.isHidden = true
+                self.connectionWarningMessageView.isHidden = false
+                self.refreshButton.isHidden = false
+            }
+        }
     }
 }
 
