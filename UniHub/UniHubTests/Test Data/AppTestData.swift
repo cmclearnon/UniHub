@@ -8,7 +8,7 @@
 import Foundation
 
 class APIClientTestData {
-    let validResponse200 = HTTPURLResponse(url: URL(string: "http://localhost:8080")!,
+    static let validResponse200 = HTTPURLResponse(url: URL(string: "http://localhost:8080")!,
                                         statusCode: 200,
                                         httpVersion: nil,
                                         headerFields: [
@@ -16,22 +16,22 @@ class APIClientTestData {
                                             "cache-control": "no-cache",
                                         ])
     
-    let validResponse299 = HTTPURLResponse(url: URL(string: "http://localhost:8080")!,
+    static let validResponse299 = HTTPURLResponse(url: URL(string: "http://localhost:8080")!,
                                              statusCode: 299,
                                              httpVersion: nil,
                                              headerFields: nil)
     
-    let invalidResponse300 = HTTPURLResponse(url: URL(string: "http://localhost:8080")!,
+    static let invalidResponse300 = HTTPURLResponse(url: URL(string: "http://localhost:8080")!,
                                              statusCode: 300,
                                              httpVersion: nil,
                                              headerFields: nil)
     
-    let invalidResponse404 = HTTPURLResponse(url: URL(string: "http://localhost:8080")!,
+    static let invalidResponse404 = HTTPURLResponse(url: URL(string: "http://localhost:8080")!,
                                              statusCode: 404,
                                              httpVersion: nil,
                                              headerFields: nil)
     
-    let expectedJSONResponse = """
+    static let expectedJSONResponse = """
     [
         {
             "web_pages": [
@@ -49,7 +49,7 @@ class APIClientTestData {
     """
     
     /// Does not contain closing Array bracket
-    let invalidDataJSONResponse = """
+    static let invalidDataJSONResponse = """
     [
         {
             "web_pages": [
