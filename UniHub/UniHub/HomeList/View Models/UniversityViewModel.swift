@@ -13,9 +13,9 @@ import Combine
 //    func updateUIContent(successful: Bool)
 //}
 
-class UniversityViewModelV2: ObservableObject, Identifiable {
+class UniversityViewModel: ObservableObject, Identifiable {
     var universityList: [University]?
-    private let client = APIClientV2.sharedInstance()
+    private let client = APIClient.sharedInstance()
     
     let onChange: (([University]) -> Void)
 

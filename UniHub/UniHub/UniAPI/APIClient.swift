@@ -8,8 +8,8 @@
 import Foundation
 import Combine
 
-class APIClientV2 {
-    private static let _sharedInstance = APIClientV2()
+class APIClient {
+    private static let _sharedInstance = APIClient()
 
     var timeoutInterval: TimeInterval = 10.0
     
@@ -18,7 +18,7 @@ class APIClientV2 {
         "cache-control": "no-cache",
     ]
 
-    class func sharedInstance() -> APIClientV2 {
+    class func sharedInstance() -> APIClient {
         return _sharedInstance
     }
     
@@ -52,7 +52,7 @@ class APIClientV2 {
     }
 }
 
-extension APIClientV2 {
+extension APIClient {
     private struct Domains {
         static let baseURL = "https://raw.githubusercontent.com/Hipo/university-domains-list/master/world_universities_and_domains.json"
         static let testURL = "http://localhost:8080"

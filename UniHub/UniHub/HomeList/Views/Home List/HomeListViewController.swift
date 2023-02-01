@@ -1,5 +1,5 @@
 //
-//  HomeListViewControllerV2.swift
+//  HomeListViewController.swift
 //  UniHub
 //
 //  Created by Chris McLearnon on 10/10/2020.
@@ -9,9 +9,9 @@ import UIKit
 import Combine
 import Network
 
-class HomeListViewControllerV2: UIViewController, UICollectionViewDelegateFlowLayout {
+class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayout {
 
-    private var viewModel: UniversityViewModelV2!
+    private var viewModel: UniversityViewModel!
 
     private var connectionEstablished: Bool = true
     var networkHandler = NetworkHandler.sharedInstance()
@@ -75,7 +75,7 @@ class HomeListViewControllerV2: UIViewController, UICollectionViewDelegateFlowLa
         self.collectionView.delegate = self
 
         setupViews()
-        self.viewModel = UniversityViewModelV2(onChange: { [weak self] universities in
+        self.viewModel = UniversityViewModel(onChange: { [weak self] universities in
             self?.univiersitiesDidLoad(universities)
         })
         
@@ -96,7 +96,7 @@ class HomeListViewControllerV2: UIViewController, UICollectionViewDelegateFlowLa
 }
 
 // View hierarchy & layout setup
-extension HomeListViewControllerV2 {
+extension HomeListViewController {
     func setupViews() {
         view.backgroundColor = UIColor.systemBackground
         view.addSubview(collectionView)
@@ -127,7 +127,7 @@ extension HomeListViewControllerV2 {
     }
 }
 
-extension HomeListViewControllerV2 {
+extension HomeListViewController {
     enum Section: Int, CaseIterable {
         case all
     }
@@ -161,7 +161,7 @@ extension HomeListViewControllerV2 {
     }
 }
 
-extension HomeListViewControllerV2: UICollectionViewDelegate {
+extension HomeListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 300)
     }
@@ -181,7 +181,7 @@ extension HomeListViewControllerV2: UICollectionViewDelegate {
 }
 
 // Utility function for displaying a UIAlertController view for invalid URL selection
-extension HomeListViewControllerV2 {
+extension HomeListViewController {
     func displayAlert(withMessage message: String) {
         let alert = createAlert(withMessage: message)
         self.present(alert, animated: true, completion: nil)
@@ -189,7 +189,7 @@ extension HomeListViewControllerV2 {
 }
 
 // NetworkHandlerObserver conforming function for actions taken after network status has changed
-extension HomeListViewControllerV2: NetworkHandlerObserver {
+extension HomeListViewController: NetworkHandlerObserver {
     
     ///Update UI elements displayed depending on network connection
     func statusDidChange(status: NWPath.Status) {
