@@ -41,7 +41,7 @@ class APIClientTests: XCTestCase {
     }
 
     func test_APIClient_BaseURLConfiguration() throws {
-        XCTAssertEqual(testClient.getTestURL(), URL(string: "http://localhost:8080"))
+        XCTAssertEqual(APIClient.getTestURL(), URL(string: "http://localhost:8080"))
     }
 
     func test_ValidResponseAndDataGetRequest() throws {
@@ -49,7 +49,7 @@ class APIClientTests: XCTestCase {
         let data = APIClientTestData.expectedJSONResponse.data(using: .utf8)
 
         URLProtocolMock.requestHandler = { request in
-            guard let url = request.url, url == self.testClient.getAllUniversitiesURL() else {
+            guard let url = request.url, url == APIClient.getAllUniversitiesURL() else {
                 throw APIError.network(description: "Invalid URL")
           }
 
@@ -75,7 +75,7 @@ class APIClientTests: XCTestCase {
         let data = APIClientTestData.expectedJSONResponse.data(using: .utf8)
 
         URLProtocolMock.requestHandler = { request in
-            guard let url = request.url, url == self.testClient.getAllUniversitiesURL() else {
+            guard let url = request.url, url == APIClient.getAllUniversitiesURL() else {
                 throw APIError.network(description: "Invalid URL")
           }
 
