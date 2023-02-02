@@ -57,6 +57,8 @@
 		7FFBE1E02987D52300507F89 /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DF2987D52300507F89 /* HomeListViewController.swift */; };
 		7FFFE0B6298AD45700CD60E5 /* UniversityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DD2987CF4500507F89 /* UniversityViewModel.swift */; };
 		7FFFE0B7298AD47900CD60E5 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DB2987CAB900507F89 /* APIClient.swift */; };
+		7FFFE0B9298BCF1400CD60E5 /* APIClient+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFE0B8298BCF1400CD60E5 /* APIClient+Endpoints.swift */; };
+		7FFFE0BA298BCF1400CD60E5 /* APIClient+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFE0B8298BCF1400CD60E5 /* APIClient+Endpoints.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +115,7 @@
 		7FFBE1DB2987CAB900507F89 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		7FFBE1DD2987CF4500507F89 /* UniversityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityViewModel.swift; sourceTree = "<group>"; };
 		7FFBE1DF2987D52300507F89 /* HomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewController.swift; sourceTree = "<group>"; };
+		7FFFE0B8298BCF1400CD60E5 /* APIClient+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIClient+Endpoints.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +262,7 @@
 				7F5332D525320C8000E86AEA /* Utilities */,
 				7F5332DB25320D8600E86AEA /* APIError.swift */,
 				7FFBE1DB2987CAB900507F89 /* APIClient.swift */,
+				7FFFE0B8298BCF1400CD60E5 /* APIClient+Endpoints.swift */,
 			);
 			path = UniAPI;
 			sourceTree = "<group>";
@@ -511,6 +515,7 @@
 				7FFBE1E02987D52300507F89 /* HomeListViewController.swift in Sources */,
 				7F53330B2534BC4200E86AEA /* NetworkUtilities.swift in Sources */,
 				7FAFFD2225362A2D00C876F0 /* ColourBarView.swift in Sources */,
+				7FFFE0B9298BCF1400CD60E5 /* APIClient+Endpoints.swift in Sources */,
 				7FAFFD352536508D00C876F0 /* UITestData.swift in Sources */,
 				7F533292253207DA00E86AEA /* AppDelegate.swift in Sources */,
 				7FFBE1DE2987CF4500507F89 /* UniversityViewModel.swift in Sources */,
@@ -535,6 +540,7 @@
 				7F5333032534B8CD00E86AEA /* APIClientTests.swift in Sources */,
 				7F822F1825366DC400DCC63D /* AppTestData.swift in Sources */,
 				7F5332F42534AE7A00E86AEA /* UniversityModelTests.swift in Sources */,
+				7FFFE0BA298BCF1400CD60E5 /* APIClient+Endpoints.swift in Sources */,
 				7FFFE0B7298AD47900CD60E5 /* APIClient.swift in Sources */,
 				7F53334A2534ED3200E86AEA /* NetworkUtilities.swift in Sources */,
 				7F53333A2534ED1200E86AEA /* University.swift in Sources */,
