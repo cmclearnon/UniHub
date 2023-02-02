@@ -55,6 +55,8 @@
 		7FFBE1DC2987CAB900507F89 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DB2987CAB900507F89 /* APIClient.swift */; };
 		7FFBE1DE2987CF4500507F89 /* UniversityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DD2987CF4500507F89 /* UniversityViewModel.swift */; };
 		7FFBE1E02987D52300507F89 /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DF2987D52300507F89 /* HomeListViewController.swift */; };
+		7FFFE0B6298AD45700CD60E5 /* UniversityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DD2987CF4500507F89 /* UniversityViewModel.swift */; };
+		7FFFE0B7298AD47900CD60E5 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DB2987CAB900507F89 /* APIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -533,10 +535,12 @@
 				7F5333032534B8CD00E86AEA /* APIClientTests.swift in Sources */,
 				7F822F1825366DC400DCC63D /* AppTestData.swift in Sources */,
 				7F5332F42534AE7A00E86AEA /* UniversityModelTests.swift in Sources */,
+				7FFFE0B7298AD47900CD60E5 /* APIClient.swift in Sources */,
 				7F53334A2534ED3200E86AEA /* NetworkUtilities.swift in Sources */,
 				7F53333A2534ED1200E86AEA /* University.swift in Sources */,
 				7F822F342536E82100DCC63D /* URLProtocolMock.swift in Sources */,
 				7F822F5E2538843600DCC63D /* UniversityViewModelTests.swift in Sources */,
+				7FFFE0B6298AD45700CD60E5 /* UniversityViewModel.swift in Sources */,
 				7F53335A2534ED3800E86AEA /* APIError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
