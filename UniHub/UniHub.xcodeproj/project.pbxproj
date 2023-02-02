@@ -67,6 +67,8 @@
 		7FFFE0C6298BD72200CD60E5 /* WKWebView+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B21E82535AF190054857C /* WKWebView+Load.swift */; };
 		7FFFE0C7298BD72D00CD60E5 /* CreateAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCEF2535BAD000C876F0 /* CreateAlert.swift */; };
 		7FFFE0C8298BD73C00CD60E5 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F222536837700DCC63D /* NetworkHandler.swift */; };
+		7FFFE0CA298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFE0C9298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift */; };
+		7FFFE0CB298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFE0C9298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -123,6 +125,7 @@
 		7FFBE1DD2987CF4500507F89 /* UniversityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityViewModel.swift; sourceTree = "<group>"; };
 		7FFBE1DF2987D52300507F89 /* HomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewController.swift; sourceTree = "<group>"; };
 		7FFFE0B8298BCF1400CD60E5 /* APIClient+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIClient+Endpoints.swift"; sourceTree = "<group>"; };
+		7FFFE0C9298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeListViewController+CollectionViewDiffableDataSource.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +350,7 @@
 				7F0B21B3253500B20054857C /* Cells */,
 				7F533297253207DA00E86AEA /* Main.storyboard */,
 				7FFBE1DF2987D52300507F89 /* HomeListViewController.swift */,
+				7FFFE0C9298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift */,
 			);
 			path = "Home List";
 			sourceTree = "<group>";
@@ -528,6 +532,7 @@
 			files = (
 				7FFBE1E02987D52300507F89 /* HomeListViewController.swift in Sources */,
 				7F53330B2534BC4200E86AEA /* NetworkUtilities.swift in Sources */,
+				7FFFE0CA298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift in Sources */,
 				7FAFFD2225362A2D00C876F0 /* ColourBarView.swift in Sources */,
 				7FFFE0B9298BCF1400CD60E5 /* APIClient+Endpoints.swift in Sources */,
 				7FAFFD352536508D00C876F0 /* UITestData.swift in Sources */,
@@ -553,6 +558,7 @@
 			files = (
 				7F5333032534B8CD00E86AEA /* APIClientTests.swift in Sources */,
 				7FFFE0BF298BD65C00CD60E5 /* HomeListViewController.swift in Sources */,
+				7FFFE0CB298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift in Sources */,
 				7F822F1825366DC400DCC63D /* AppTestData.swift in Sources */,
 				7F5332F42534AE7A00E86AEA /* UniversityModelTests.swift in Sources */,
 				7FFFE0BA298BCF1400CD60E5 /* APIClient+Endpoints.swift in Sources */,

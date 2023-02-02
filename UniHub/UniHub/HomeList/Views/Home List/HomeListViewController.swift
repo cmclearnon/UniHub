@@ -131,40 +131,6 @@ extension HomeListViewController {
     }
 }
 
-extension HomeListViewController {
-    enum Section: Int, CaseIterable {
-        case all
-    }
-    func makeDataSource() -> UICollectionViewDiffableDataSource<Section, University> {
-        UICollectionViewDiffableDataSource(
-            collectionView: collectionView,
-            cellProvider: { collectionView, indexPath, university in
-                let cell = collectionView.dequeueReusableCell(
-                    withReuseIdentifier: "reuseID",
-                    for: indexPath
-                ) as! HomeListCollectionViewCell
-
-                cell.nameString = university.name
-                cell.locationString = "\(university.country)"
-                cell.domainsList = university.domains
-                
-                return cell
-            }
-        )
-    }
-    
-    func univiersitiesDidLoad(_ list: [University]) {
-        // Create snapshot
-        var snapshot = NSDiffableDataSourceSnapshot<Section, University>()
-        // Append section
-        snapshot.appendSections(Section.allCases)
-        // Append universities
-        snapshot.appendItems(list, toSection: .all)
-        // Apply to datasource
-        dataSource.apply(snapshot)
-    }
-}
-
 extension HomeListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 300)
