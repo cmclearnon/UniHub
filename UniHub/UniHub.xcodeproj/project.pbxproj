@@ -250,6 +250,7 @@
 		7F5332C525320ADB00E86AEA /* HomeList */ = {
 			isa = PBXGroup;
 			children = (
+				7FFFE0CD298BF29900CD60E5 /* View Controllers */,
 				7F5332E925347ABD00E86AEA /* Models */,
 				7F5332E0253239BF00E86AEA /* View Models */,
 				7F5332C625320B1100E86AEA /* Views */,
@@ -262,7 +263,6 @@
 			children = (
 				7FAFFD2A253631B000C876F0 /* Custom Views */,
 				7FAFFCEE2535BABB00C876F0 /* Utilities */,
-				7FAFFCEC2535BA4800C876F0 /* Home List */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -402,6 +402,14 @@
 				7FFFE0C9298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7FFFE0CD298BF29900CD60E5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7FAFFCEC2535BA4800C876F0 /* Home List */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
