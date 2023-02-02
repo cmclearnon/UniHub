@@ -48,6 +48,15 @@ class APIClientTestData {
     ]
     """
     
+    static let expectedUniversityObject = University(
+        webPages: ["http://www.marywood.edu"],
+        name: "Marywood University",
+        alphaTwoCode: "US",
+        stateProvince: "Province",
+        domains: ["marywood.edu"],
+        country: "United States"
+    )
+    
     /// Does not contain closing Array bracket
     static let invalidDataJSONResponse = """
     [
