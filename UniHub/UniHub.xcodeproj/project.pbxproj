@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,26 +13,15 @@
 		7F0B21EA2535AF190054857C /* WKWebView+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B21E82535AF190054857C /* WKWebView+Load.swift */; };
 		7F533292253207DA00E86AEA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F533291253207DA00E86AEA /* AppDelegate.swift */; };
 		7F533294253207DA00E86AEA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F533293253207DA00E86AEA /* SceneDelegate.swift */; };
-		7F533296253207DA00E86AEA /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F533295253207DA00E86AEA /* HomeListViewController.swift */; };
 		7F533299253207DA00E86AEA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F533297253207DA00E86AEA /* Main.storyboard */; };
 		7F53329B253207DC00E86AEA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7F53329A253207DC00E86AEA /* Assets.xcassets */; };
 		7F53329E253207DC00E86AEA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7F53329C253207DC00E86AEA /* LaunchScreen.storyboard */; };
 		7F5332B4253207DC00E86AEA /* UniHubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332B3253207DC00E86AEA /* UniHubUITests.swift */; };
-		7F5332CE25320B6E00E86AEA /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332CD25320B6E00E86AEA /* APIClient.swift */; };
 		7F5332DC25320D8700E86AEA /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332DB25320D8600E86AEA /* APIError.swift */; };
-		7F5332E2253239CF00E86AEA /* UniversityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332E1253239CF00E86AEA /* UniversityViewModel.swift */; };
 		7F5332EB25347AD400E86AEA /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332EA25347AD300E86AEA /* University.swift */; };
 		7F5332F42534AE7A00E86AEA /* UniversityModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332F32534AE7A00E86AEA /* UniversityModelTests.swift */; };
 		7F5333032534B8CD00E86AEA /* APIClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5333022534B8CD00E86AEA /* APIClientTests.swift */; };
 		7F53330B2534BC4200E86AEA /* NetworkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53330A2534BC4200E86AEA /* NetworkUtilities.swift */; };
-		7F53331D2534E43B00E86AEA /* HomeListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53331C2534E43B00E86AEA /* HomeListViewControllerTests.swift */; };
-		7F53332E2534ECF600E86AEA /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F533295253207DA00E86AEA /* HomeListViewController.swift */; };
-		7F5333322534ED0F00E86AEA /* UniversityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332E1253239CF00E86AEA /* UniversityViewModel.swift */; };
-		7F5333362534ED1000E86AEA /* UniversityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332E1253239CF00E86AEA /* UniversityViewModel.swift */; };
-		7F53333A2534ED1200E86AEA /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332EA25347AD300E86AEA /* University.swift */; };
-		7F53333E2534ED1300E86AEA /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332EA25347AD300E86AEA /* University.swift */; };
-		7F5333422534ED2100E86AEA /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332CD25320B6E00E86AEA /* APIClient.swift */; };
-		7F5333462534ED2200E86AEA /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332CD25320B6E00E86AEA /* APIClient.swift */; };
 		7F53334A2534ED3200E86AEA /* NetworkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53330A2534BC4200E86AEA /* NetworkUtilities.swift */; };
 		7F53334E2534ED3200E86AEA /* NetworkUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53330A2534BC4200E86AEA /* NetworkUtilities.swift */; };
 		7F53335A2534ED3800E86AEA /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332DB25320D8600E86AEA /* APIError.swift */; };
@@ -43,26 +32,43 @@
 		7F822F232536837700DCC63D /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F222536837700DCC63D /* NetworkHandler.swift */; };
 		7F822F28253684C700DCC63D /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F27253684C700DCC63D /* RefreshButton.swift */; };
 		7F822F342536E82100DCC63D /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F332536E82100DCC63D /* URLProtocolMock.swift */; };
-		7F822F382536EA1700DCC63D /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F222536837700DCC63D /* NetworkHandler.swift */; };
 		7F822F3C2536EA1D00DCC63D /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F27253684C700DCC63D /* RefreshButton.swift */; };
-		7F822F5E2538843600DCC63D /* UniversityViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F5D2538843600DCC63D /* UniversityViewModelTests.swift */; };
+		7F822F5E2538843600DCC63D /* UniversitiesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F5D2538843600DCC63D /* UniversitiesListViewModelTests.swift */; };
 		7FAFFCDE2535B73F00C876F0 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCDC2535B73F00C876F0 /* WKWebViewController.swift */; };
 		7FAFFCE42535B76700C876F0 /* WKWebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FAFFCE32535B76700C876F0 /* WKWebViewController.storyboard */; };
 		7FAFFCE52535B76700C876F0 /* WKWebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FAFFCE32535B76700C876F0 /* WKWebViewController.storyboard */; };
-		7FAFFCF02535BAD000C876F0 /* CreateAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCEF2535BAD000C876F0 /* CreateAlert.swift */; };
-		7FAFFCF12535BAD000C876F0 /* CreateAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCEF2535BAD000C876F0 /* CreateAlert.swift */; };
+		7FAFFCF02535BAD000C876F0 /* ViewsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCEF2535BAD000C876F0 /* ViewsHelpers.swift */; };
+		7FAFFCF12535BAD000C876F0 /* ViewsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCEF2535BAD000C876F0 /* ViewsHelpers.swift */; };
 		7FAFFD092535BD3800C876F0 /* CreateAlertViewUtilityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD082535BD3800C876F0 /* CreateAlertViewUtilityTests.swift */; };
 		7FAFFD102535BF6600C876F0 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCDC2535B73F00C876F0 /* WKWebViewController.swift */; };
 		7FAFFD1C2535DB9E00C876F0 /* CellMainContentsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD1B2535DB9E00C876F0 /* CellMainContentsContainerView.swift */; };
 		7FAFFD1D2535DB9E00C876F0 /* CellMainContentsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD1B2535DB9E00C876F0 /* CellMainContentsContainerView.swift */; };
 		7FAFFD2225362A2D00C876F0 /* ColourBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD2125362A2D00C876F0 /* ColourBarView.swift */; };
 		7FAFFD2325362A2D00C876F0 /* ColourBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD2125362A2D00C876F0 /* ColourBarView.swift */; };
-		7FAFFD2F25364BB100C876F0 /* UICollectionViewCombineDataSourcesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD2E25364BB100C876F0 /* UICollectionViewCombineDataSourcesTests.swift */; };
 		7FAFFD352536508D00C876F0 /* UITestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD342536508D00C876F0 /* UITestData.swift */; };
 		7FAFFD362536508D00C876F0 /* UITestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD342536508D00C876F0 /* UITestData.swift */; };
-		89B0B515B168E7354C605327 /* Pods_UniHub_UniHubUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18BD4DDBC72E92191BF63014 /* Pods_UniHub_UniHubUITests.framework */; };
-		99BEAFFC13AD09E876E18CDF /* Pods_UniHubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD4142AE38106AF655483BE0 /* Pods_UniHubTests.framework */; };
-		BFD139DBE238BCA27B278D14 /* Pods_UniHub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACFFE3F9B6E6D7CF90DF5495 /* Pods_UniHub.framework */; };
+		7FFBE1DC2987CAB900507F89 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DB2987CAB900507F89 /* APIClient.swift */; };
+		7FFBE1DE2987CF4500507F89 /* UniversitiesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DD2987CF4500507F89 /* UniversitiesListViewModel.swift */; };
+		7FFBE1E02987D52300507F89 /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DF2987D52300507F89 /* HomeListViewController.swift */; };
+		7FFFE0B6298AD45700CD60E5 /* UniversitiesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DD2987CF4500507F89 /* UniversitiesListViewModel.swift */; };
+		7FFFE0B7298AD47900CD60E5 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DB2987CAB900507F89 /* APIClient.swift */; };
+		7FFFE0B9298BCF1400CD60E5 /* APIClient+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFE0B8298BCF1400CD60E5 /* APIClient+Endpoints.swift */; };
+		7FFFE0BA298BCF1400CD60E5 /* APIClient+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFE0B8298BCF1400CD60E5 /* APIClient+Endpoints.swift */; };
+		7FFFE0BC298BD1AC00CD60E5 /* HomeListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F53331C2534E43B00E86AEA /* HomeListViewControllerTests.swift */; };
+		7FFFE0BD298BD51900CD60E5 /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332EA25347AD300E86AEA /* University.swift */; };
+		7FFFE0BE298BD52400CD60E5 /* University.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5332EA25347AD300E86AEA /* University.swift */; };
+		7FFFE0BF298BD65C00CD60E5 /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DF2987D52300507F89 /* HomeListViewController.swift */; };
+		7FFFE0C0298BD6B200CD60E5 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F222536837700DCC63D /* NetworkHandler.swift */; };
+		7FFFE0C1298BD6BB00CD60E5 /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F27253684C700DCC63D /* RefreshButton.swift */; };
+		7FFFE0C2298BD6CE00CD60E5 /* HomeListCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B21B4253500C50054857C /* HomeListCollectionViewCell.swift */; };
+		7FFFE0C3298BD6DE00CD60E5 /* ColourBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD2125362A2D00C876F0 /* ColourBarView.swift */; };
+		7FFFE0C4298BD6E800CD60E5 /* CellMainContentsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD1B2535DB9E00C876F0 /* CellMainContentsContainerView.swift */; };
+		7FFFE0C5298BD71F00CD60E5 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCDC2535B73F00C876F0 /* WKWebViewController.swift */; };
+		7FFFE0C6298BD72200CD60E5 /* WKWebView+Load.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F0B21E82535AF190054857C /* WKWebView+Load.swift */; };
+		7FFFE0C7298BD72D00CD60E5 /* ViewsHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCEF2535BAD000C876F0 /* ViewsHelpers.swift */; };
+		7FFFE0C8298BD73C00CD60E5 /* NetworkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F222536837700DCC63D /* NetworkHandler.swift */; };
+		7FFFE0CA298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFE0C9298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift */; };
+		7FFFE0CB298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFE0C9298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,16 +89,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		18BD4DDBC72E92191BF63014 /* Pods_UniHub_UniHubUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniHub_UniHubUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		3A09B5292C7CD549FD7433A4 /* Pods-UniHub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniHub.debug.xcconfig"; path = "Target Support Files/Pods-UniHub/Pods-UniHub.debug.xcconfig"; sourceTree = "<group>"; };
-		3EA9BEC2B91F5C01D6753FD9 /* Pods-UniHub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniHub.release.xcconfig"; path = "Target Support Files/Pods-UniHub/Pods-UniHub.release.xcconfig"; sourceTree = "<group>"; };
-		619FCB1D79F65A2BE3A57EBE /* Pods-UniHub-UniHubUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniHub-UniHubUITests.release.xcconfig"; path = "Target Support Files/Pods-UniHub-UniHubUITests/Pods-UniHub-UniHubUITests.release.xcconfig"; sourceTree = "<group>"; };
 		7F0B21B4253500C50054857C /* HomeListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListCollectionViewCell.swift; sourceTree = "<group>"; };
 		7F0B21E82535AF190054857C /* WKWebView+Load.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Load.swift"; sourceTree = "<group>"; };
 		7F53328E253207DA00E86AEA /* UniHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F533291253207DA00E86AEA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7F533293253207DA00E86AEA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		7F533295253207DA00E86AEA /* HomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewController.swift; sourceTree = "<group>"; };
 		7F533298253207DA00E86AEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7F53329A253207DC00E86AEA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7F53329D253207DC00E86AEA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -102,9 +103,7 @@
 		7F5332AF253207DC00E86AEA /* UniHubUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UniHubUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F5332B3253207DC00E86AEA /* UniHubUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniHubUITests.swift; sourceTree = "<group>"; };
 		7F5332B5253207DC00E86AEA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7F5332CD25320B6E00E86AEA /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
 		7F5332DB25320D8600E86AEA /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
-		7F5332E1253239CF00E86AEA /* UniversityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityViewModel.swift; sourceTree = "<group>"; };
 		7F5332EA25347AD300E86AEA /* University.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = University.swift; sourceTree = "<group>"; };
 		7F5332F32534AE7A00E86AEA /* UniversityModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityModelTests.swift; sourceTree = "<group>"; };
 		7F5333022534B8CD00E86AEA /* APIClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTests.swift; sourceTree = "<group>"; };
@@ -114,20 +113,19 @@
 		7F822F222536837700DCC63D /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		7F822F27253684C700DCC63D /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
 		7F822F332536E82100DCC63D /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
-		7F822F5D2538843600DCC63D /* UniversityViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityViewModelTests.swift; sourceTree = "<group>"; };
+		7F822F5D2538843600DCC63D /* UniversitiesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversitiesListViewModelTests.swift; sourceTree = "<group>"; };
 		7FAFFCDC2535B73F00C876F0 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		7FAFFCE32535B76700C876F0 /* WKWebViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WKWebViewController.storyboard; sourceTree = "<group>"; };
-		7FAFFCEF2535BAD000C876F0 /* CreateAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlert.swift; sourceTree = "<group>"; };
+		7FAFFCEF2535BAD000C876F0 /* ViewsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsHelpers.swift; sourceTree = "<group>"; };
 		7FAFFD082535BD3800C876F0 /* CreateAlertViewUtilityTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAlertViewUtilityTests.swift; sourceTree = "<group>"; };
 		7FAFFD1B2535DB9E00C876F0 /* CellMainContentsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellMainContentsContainerView.swift; sourceTree = "<group>"; };
 		7FAFFD2125362A2D00C876F0 /* ColourBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourBarView.swift; sourceTree = "<group>"; };
-		7FAFFD2E25364BB100C876F0 /* UICollectionViewCombineDataSourcesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCombineDataSourcesTests.swift; sourceTree = "<group>"; };
 		7FAFFD342536508D00C876F0 /* UITestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestData.swift; sourceTree = "<group>"; };
-		86B46E1591ABA9554D065E86 /* Pods-UniHubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniHubTests.release.xcconfig"; path = "Target Support Files/Pods-UniHubTests/Pods-UniHubTests.release.xcconfig"; sourceTree = "<group>"; };
-		9CE7282EF1D53B910244F128 /* Pods-UniHubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniHubTests.debug.xcconfig"; path = "Target Support Files/Pods-UniHubTests/Pods-UniHubTests.debug.xcconfig"; sourceTree = "<group>"; };
-		ACFFE3F9B6E6D7CF90DF5495 /* Pods_UniHub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniHub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AD4142AE38106AF655483BE0 /* Pods_UniHubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UniHubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD8CDF25CC5C7908CE7DCA34 /* Pods-UniHub-UniHubUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UniHub-UniHubUITests.debug.xcconfig"; path = "Target Support Files/Pods-UniHub-UniHubUITests/Pods-UniHub-UniHubUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7FFBE1DB2987CAB900507F89 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		7FFBE1DD2987CF4500507F89 /* UniversitiesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversitiesListViewModel.swift; sourceTree = "<group>"; };
+		7FFBE1DF2987D52300507F89 /* HomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewController.swift; sourceTree = "<group>"; };
+		7FFFE0B8298BCF1400CD60E5 /* APIClient+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIClient+Endpoints.swift"; sourceTree = "<group>"; };
+		7FFFE0C9298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeListViewController+CollectionViewDiffableDataSource.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,7 +133,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BFD139DBE238BCA27B278D14 /* Pods_UniHub.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,7 +140,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99BEAFFC13AD09E876E18CDF /* Pods_UniHubTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,23 +147,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				89B0B515B168E7354C605327 /* Pods_UniHub_UniHubUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0E77D8E405CAC0CA904CBAF6 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				ACFFE3F9B6E6D7CF90DF5495 /* Pods_UniHub.framework */,
-				18BD4DDBC72E92191BF63014 /* Pods_UniHub_UniHubUITests.framework */,
-				AD4142AE38106AF655483BE0 /* Pods_UniHubTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		7F0B21B3253500B20054857C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -202,8 +187,6 @@
 				7F5332A7253207DC00E86AEA /* UniHubTests */,
 				7F5332B2253207DC00E86AEA /* UniHubUITests */,
 				7F53328F253207DA00E86AEA /* Products */,
-				F2C7347E1015A6960B13F7CD /* Pods */,
-				0E77D8E405CAC0CA904CBAF6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,6 +217,7 @@
 		7F5332A7253207DC00E86AEA /* UniHubTests */ = {
 			isa = PBXGroup;
 			children = (
+				7FFFE0BB298BD11100CD60E5 /* View Controller Tests */,
 				7F822F5C2538842200DCC63D /* View Model Tests */,
 				7F822F1625366DAA00DCC63D /* Test Data */,
 				7F5333012534B89A00E86AEA /* Networking Tests */,
@@ -266,6 +250,7 @@
 		7F5332C525320ADB00E86AEA /* HomeList */ = {
 			isa = PBXGroup;
 			children = (
+				7FFFE0CD298BF29900CD60E5 /* View Controllers */,
 				7F5332E925347ABD00E86AEA /* Models */,
 				7F5332E0253239BF00E86AEA /* View Models */,
 				7F5332C625320B1100E86AEA /* Views */,
@@ -278,7 +263,6 @@
 			children = (
 				7FAFFD2A253631B000C876F0 /* Custom Views */,
 				7FAFFCEE2535BABB00C876F0 /* Utilities */,
-				7FAFFCEC2535BA4800C876F0 /* Home List */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -287,8 +271,9 @@
 			isa = PBXGroup;
 			children = (
 				7F5332D525320C8000E86AEA /* Utilities */,
-				7F5332CD25320B6E00E86AEA /* APIClient.swift */,
 				7F5332DB25320D8600E86AEA /* APIError.swift */,
+				7FFBE1DB2987CAB900507F89 /* APIClient.swift */,
+				7FFFE0B8298BCF1400CD60E5 /* APIClient+Endpoints.swift */,
 			);
 			path = UniAPI;
 			sourceTree = "<group>";
@@ -305,7 +290,7 @@
 		7F5332E0253239BF00E86AEA /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				7F5332E1253239CF00E86AEA /* UniversityViewModel.swift */,
+				7FFBE1DD2987CF4500507F89 /* UniversitiesListViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -339,8 +324,6 @@
 			isa = PBXGroup;
 			children = (
 				7FAFFD072535BD0E00C876F0 /* View Utilities Tests */,
-				7F53331C2534E43B00E86AEA /* HomeListViewControllerTests.swift */,
-				7FAFFD2E25364BB100C876F0 /* UICollectionViewCombineDataSourcesTests.swift */,
 			);
 			path = "View Controller Tests";
 			sourceTree = "<group>";
@@ -356,7 +339,7 @@
 		7F822F5C2538842200DCC63D /* View Model Tests */ = {
 			isa = PBXGroup;
 			children = (
-				7F822F5D2538843600DCC63D /* UniversityViewModelTests.swift */,
+				7F822F5D2538843600DCC63D /* UniversitiesListViewModelTests.swift */,
 			);
 			path = "View Model Tests";
 			sourceTree = "<group>";
@@ -364,9 +347,10 @@
 		7FAFFCEC2535BA4800C876F0 /* Home List */ = {
 			isa = PBXGroup;
 			children = (
+				7FFFE0CC298BF24500CD60E5 /* Extensions */,
 				7F0B21B3253500B20054857C /* Cells */,
-				7F533295253207DA00E86AEA /* HomeListViewController.swift */,
 				7F533297253207DA00E86AEA /* Main.storyboard */,
+				7FFBE1DF2987D52300507F89 /* HomeListViewController.swift */,
 			);
 			path = "Home List";
 			sourceTree = "<group>";
@@ -374,7 +358,7 @@
 		7FAFFCEE2535BABB00C876F0 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				7FAFFCEF2535BAD000C876F0 /* CreateAlert.swift */,
+				7FAFFCEF2535BAD000C876F0 /* ViewsHelpers.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -404,17 +388,28 @@
 			path = "Test Data";
 			sourceTree = "<group>";
 		};
-		F2C7347E1015A6960B13F7CD /* Pods */ = {
+		7FFFE0BB298BD11100CD60E5 /* View Controller Tests */ = {
 			isa = PBXGroup;
 			children = (
-				3A09B5292C7CD549FD7433A4 /* Pods-UniHub.debug.xcconfig */,
-				3EA9BEC2B91F5C01D6753FD9 /* Pods-UniHub.release.xcconfig */,
-				BD8CDF25CC5C7908CE7DCA34 /* Pods-UniHub-UniHubUITests.debug.xcconfig */,
-				619FCB1D79F65A2BE3A57EBE /* Pods-UniHub-UniHubUITests.release.xcconfig */,
-				9CE7282EF1D53B910244F128 /* Pods-UniHubTests.debug.xcconfig */,
-				86B46E1591ABA9554D065E86 /* Pods-UniHubTests.release.xcconfig */,
+				7F53331C2534E43B00E86AEA /* HomeListViewControllerTests.swift */,
 			);
-			path = Pods;
+			path = "View Controller Tests";
+			sourceTree = "<group>";
+		};
+		7FFFE0CC298BF24500CD60E5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7FFFE0C9298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7FFFE0CD298BF29900CD60E5 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				7FAFFCEC2535BA4800C876F0 /* Home List */,
+			);
+			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -424,11 +419,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F5332B8253207DD00E86AEA /* Build configuration list for PBXNativeTarget "UniHub" */;
 			buildPhases = (
-				7A09CA3B2B11B5BBF35AAA6D /* [CP] Check Pods Manifest.lock */,
 				7F53328A253207DA00E86AEA /* Sources */,
 				7F53328B253207DA00E86AEA /* Frameworks */,
 				7F53328C253207DA00E86AEA /* Resources */,
-				AE1597B5B74BB5727EF4FDDE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -443,7 +436,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F5332BB253207DD00E86AEA /* Build configuration list for PBXNativeTarget "UniHubTests" */;
 			buildPhases = (
-				F87086A01D6B5C17F8339BC6 /* [CP] Check Pods Manifest.lock */,
 				7F5332A0253207DC00E86AEA /* Sources */,
 				7F5332A1253207DC00E86AEA /* Frameworks */,
 				7F5332A2253207DC00E86AEA /* Resources */,
@@ -462,11 +454,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7F5332BE253207DD00E86AEA /* Build configuration list for PBXNativeTarget "UniHubUITests" */;
 			buildPhases = (
-				30399C253AF2CF4285D2F694 /* [CP] Check Pods Manifest.lock */,
 				7F5332AB253207DC00E86AEA /* Sources */,
 				7F5332AC253207DC00E86AEA /* Frameworks */,
 				7F5332AD253207DC00E86AEA /* Resources */,
-				45C5E6D526841002CDAD96DC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -551,129 +541,28 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		30399C253AF2CF4285D2F694 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-UniHub-UniHubUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		45C5E6D526841002CDAD96DC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UniHub-UniHubUITests/Pods-UniHub-UniHubUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UniHub-UniHubUITests/Pods-UniHub-UniHubUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UniHub-UniHubUITests/Pods-UniHub-UniHubUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7A09CA3B2B11B5BBF35AAA6D /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-UniHub-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AE1597B5B74BB5727EF4FDDE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UniHub/Pods-UniHub-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-UniHub/Pods-UniHub-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UniHub/Pods-UniHub-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F87086A01D6B5C17F8339BC6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-UniHubTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		7F53328A253207DA00E86AEA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7F533296253207DA00E86AEA /* HomeListViewController.swift in Sources */,
+				7FFBE1E02987D52300507F89 /* HomeListViewController.swift in Sources */,
 				7F53330B2534BC4200E86AEA /* NetworkUtilities.swift in Sources */,
+				7FFFE0CA298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift in Sources */,
 				7FAFFD2225362A2D00C876F0 /* ColourBarView.swift in Sources */,
+				7FFFE0B9298BCF1400CD60E5 /* APIClient+Endpoints.swift in Sources */,
 				7FAFFD352536508D00C876F0 /* UITestData.swift in Sources */,
 				7F533292253207DA00E86AEA /* AppDelegate.swift in Sources */,
-				7F5332E2253239CF00E86AEA /* UniversityViewModel.swift in Sources */,
+				7FFBE1DE2987CF4500507F89 /* UniversitiesListViewModel.swift in Sources */,
 				7F822F28253684C700DCC63D /* RefreshButton.swift in Sources */,
+				7FFBE1DC2987CAB900507F89 /* APIClient.swift in Sources */,
 				7F0B21E92535AF190054857C /* WKWebView+Load.swift in Sources */,
 				7F533294253207DA00E86AEA /* SceneDelegate.swift in Sources */,
 				7F822F232536837700DCC63D /* NetworkHandler.swift in Sources */,
 				7F5332EB25347AD400E86AEA /* University.swift in Sources */,
-				7FAFFCF02535BAD000C876F0 /* CreateAlert.swift in Sources */,
+				7FAFFCF02535BAD000C876F0 /* ViewsHelpers.swift in Sources */,
 				7FAFFD1C2535DB9E00C876F0 /* CellMainContentsContainerView.swift in Sources */,
 				7FAFFCDE2535B73F00C876F0 /* WKWebViewController.swift in Sources */,
-				7F5332CE25320B6E00E86AEA /* APIClient.swift in Sources */,
 				7F0B21B5253500C50054857C /* HomeListCollectionViewCell.swift in Sources */,
 				7F5332DC25320D8700E86AEA /* APIError.swift in Sources */,
 			);
@@ -684,15 +573,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F5333032534B8CD00E86AEA /* APIClientTests.swift in Sources */,
-				7F5333322534ED0F00E86AEA /* UniversityViewModel.swift in Sources */,
+				7FFFE0BF298BD65C00CD60E5 /* HomeListViewController.swift in Sources */,
+				7FFFE0CB298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift in Sources */,
 				7F822F1825366DC400DCC63D /* AppTestData.swift in Sources */,
 				7F5332F42534AE7A00E86AEA /* UniversityModelTests.swift in Sources */,
+				7FFFE0BA298BCF1400CD60E5 /* APIClient+Endpoints.swift in Sources */,
+				7FFFE0B7298AD47900CD60E5 /* APIClient.swift in Sources */,
+				7FFFE0BE298BD52400CD60E5 /* University.swift in Sources */,
+				7FFFE0C1298BD6BB00CD60E5 /* RefreshButton.swift in Sources */,
+				7FFFE0C7298BD72D00CD60E5 /* ViewsHelpers.swift in Sources */,
+				7FFFE0C5298BD71F00CD60E5 /* WKWebViewController.swift in Sources */,
+				7FFFE0C3298BD6DE00CD60E5 /* ColourBarView.swift in Sources */,
 				7F53334A2534ED3200E86AEA /* NetworkUtilities.swift in Sources */,
-				7F53333A2534ED1200E86AEA /* University.swift in Sources */,
 				7F822F342536E82100DCC63D /* URLProtocolMock.swift in Sources */,
-				7F822F5E2538843600DCC63D /* UniversityViewModelTests.swift in Sources */,
-				7F5333422534ED2100E86AEA /* APIClient.swift in Sources */,
+				7F822F5E2538843600DCC63D /* UniversitiesListViewModelTests.swift in Sources */,
+				7FFFE0BC298BD1AC00CD60E5 /* HomeListViewControllerTests.swift in Sources */,
+				7FFFE0C4298BD6E800CD60E5 /* CellMainContentsContainerView.swift in Sources */,
+				7FFFE0B6298AD45700CD60E5 /* UniversitiesListViewModel.swift in Sources */,
 				7F53335A2534ED3800E86AEA /* APIError.swift in Sources */,
+				7FFFE0C6298BD72200CD60E5 /* WKWebView+Load.swift in Sources */,
+				7FFFE0C2298BD6CE00CD60E5 /* HomeListCollectionViewCell.swift in Sources */,
+				7FFFE0C0298BD6B200CD60E5 /* NetworkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -700,25 +601,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7FAFFD2F25364BB100C876F0 /* UICollectionViewCombineDataSourcesTests.swift in Sources */,
 				7FAFFD102535BF6600C876F0 /* WKWebViewController.swift in Sources */,
 				7F0B21D0253510D50054857C /* HomeListCollectionViewCell.swift in Sources */,
 				7F5332B4253207DC00E86AEA /* UniHubUITests.swift in Sources */,
 				7FAFFD092535BD3800C876F0 /* CreateAlertViewUtilityTests.swift in Sources */,
-				7F53332E2534ECF600E86AEA /* HomeListViewController.swift in Sources */,
-				7F5333362534ED1000E86AEA /* UniversityViewModel.swift in Sources */,
-				7FAFFCF12535BAD000C876F0 /* CreateAlert.swift in Sources */,
+				7FAFFCF12535BAD000C876F0 /* ViewsHelpers.swift in Sources */,
 				7FAFFD1D2535DB9E00C876F0 /* CellMainContentsContainerView.swift in Sources */,
 				7FAFFD362536508D00C876F0 /* UITestData.swift in Sources */,
 				7FAFFD2325362A2D00C876F0 /* ColourBarView.swift in Sources */,
-				7F53331D2534E43B00E86AEA /* HomeListViewControllerTests.swift in Sources */,
 				7F0B21EA2535AF190054857C /* WKWebView+Load.swift in Sources */,
 				7F53334E2534ED3200E86AEA /* NetworkUtilities.swift in Sources */,
-				7F53333E2534ED1300E86AEA /* University.swift in Sources */,
-				7F5333462534ED2200E86AEA /* APIClient.swift in Sources */,
 				7F822F3C2536EA1D00DCC63D /* RefreshButton.swift in Sources */,
 				7F53335E2534ED3900E86AEA /* APIError.swift in Sources */,
-				7F822F382536EA1700DCC63D /* NetworkHandler.swift in Sources */,
+				7FFFE0BD298BD51900CD60E5 /* University.swift in Sources */,
+				7FFFE0C8298BD73C00CD60E5 /* NetworkHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -875,7 +771,6 @@
 		};
 		7F5332B9253207DD00E86AEA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3A09B5292C7CD549FD7433A4 /* Pods-UniHub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -895,7 +790,6 @@
 		};
 		7F5332BA253207DD00E86AEA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3EA9BEC2B91F5C01D6753FD9 /* Pods-UniHub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -915,7 +809,6 @@
 		};
 		7F5332BC253207DD00E86AEA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9CE7282EF1D53B910244F128 /* Pods-UniHubTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -938,7 +831,6 @@
 		};
 		7F5332BD253207DD00E86AEA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86B46E1591ABA9554D065E86 /* Pods-UniHubTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -961,7 +853,6 @@
 		};
 		7F5332BF253207DD00E86AEA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD8CDF25CC5C7908CE7DCA34 /* Pods-UniHub-UniHubUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -982,7 +873,6 @@
 		};
 		7F5332C0253207DD00E86AEA /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 619FCB1D79F65A2BE3A57EBE /* Pods-UniHub-UniHubUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

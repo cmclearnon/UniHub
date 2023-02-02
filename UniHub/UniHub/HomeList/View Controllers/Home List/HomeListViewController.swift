@@ -7,26 +7,29 @@
 
 import UIKit
 import Combine
-import CombineDataSources
 import Network
 
-class HomeListViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayout {
 
-    private var viewModel: UniversityViewModel!
-    private var collectionViewItemsController: CollectionViewItemsController<[[University]]>!
+    private var viewModel: UniversitiesListViewModel!
+
     private var connectionEstablished: Bool = true
-    var networkHandler = NetworkHandler.sharedInstance()
+    private var networkHandler = NetworkHandler.sharedInstance()
     
-    private let collectionView: UICollectionView = {
+    let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.backgroundColor = .clear
         cv.showsVerticalScrollIndicator = false
         cv.translatesAutoresizingMaskIntoConstraints = false
-        cv.register(HomeListCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+        cv.register(
+            HomeListCollectionViewCell.self,
+            forCellWithReuseIdentifier: "reuseID"
+        )
         return cv
     }()
+    private(set) lazy var dataSource = makeDataSource()
     
     private let connectionWarningMessageView: UILabel = {
        let lb = UILabel()
@@ -66,12 +69,21 @@ class HomeListViewController: UIViewController, UICollectionViewDelegate, UIColl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        setupViews()
-        self.viewModel = UniversityViewModel(delegate: self)
-        self.viewModel.fetchUniversityList()
+        // Registering our cell class with the collection view
+        // and assigning our diffable data source to it:
+        self.collectionView.dataSource = dataSource
         self.collectionView.delegate = self
-        self.setupDataSource()
+
+        setupViews()
+        self.viewModel = UniversitiesListViewModel(onChange: { [weak self] universities in
+            DispatchQueue.main.sync {
+                self?.activityIndicatorView.isHidden = true
+            }
+            self?.univiersitiesDidLoad(universities)
+        })
+        
+        self.activityIndicatorView.isHidden = false
+        self.viewModel.fetchUniversities()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -79,18 +91,10 @@ class HomeListViewController: UIViewController, UICollectionViewDelegate, UIColl
         statusDidChange(status: networkHandler.currentStatus)
         networkHandler.removeObserver(observer: self)
     }
-    
-    func getCollectionView() -> UICollectionView {
-        return collectionView
-    }
-    
-    func getViewMode() -> UniversityViewModel {
-        return viewModel
-    }
-    
+
     @objc func refreshPressed(sender: UIButton!) {
         self.refreshButton.showLoading()
-        self.viewModel.fetchUniversityList()
+        self.viewModel.fetchUniversities()
         self.refreshButton.hideLoading()
     }
 }
@@ -127,22 +131,7 @@ extension HomeListViewController {
     }
 }
 
-// UICollectionViewDelegateFlowLayout & CombineDataSources conforming functions
-extension HomeListViewController {
-    
-    /// Using CombineDataSources library to set up collectionView as a Subscriber to the viewModel's universityList didChange Publisher
-    fileprivate func setupDataSource() {
-        collectionViewItemsController = CollectionViewItemsController<[[University]]>(cellIdentifier: "Cell", cellType: HomeListCollectionViewCell.self) { (cell, indexPath, model) in
-            cell.nameString = model.name
-            cell.locationString = "\(model.country)"
-            cell.domainsList = model.domains
-        }
-        
-        viewModel.didChange
-            .map{ $0 }
-            .subscribe(collectionView.itemsSubscriber(collectionViewItemsController))
-    }
-    
+extension HomeListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: collectionView.frame.width, height: 300)
     }
@@ -169,30 +158,6 @@ extension HomeListViewController {
     }
 }
 
-// UniversityViewModelEventsDelegate conforming function implementation
-extension HomeListViewController: UniversityViewModelEventsDelegate {
-    
-    /// Update activityIndicator on viewModel event changes
-    func updateLoadingIndicator() {
-        if (activityIndicatorView.isAnimating == false) {
-            activityIndicatorView.startAnimating()
-        } else {
-            activityIndicatorView.stopAnimating()
-        }
-    }
-
-    /// Update collectionView on viewModel event changes
-    func updateUIContent(successful: Bool) {
-        if successful == true {
-            collectionView.isHidden = false
-            refreshButton.isHidden = true
-        } else {
-            collectionView.isHidden = true
-            refreshButton.isHidden = false
-        }
-    }
-}
-
 // NetworkHandlerObserver conforming function for actions taken after network status has changed
 extension HomeListViewController: NetworkHandlerObserver {
     
@@ -200,16 +165,10 @@ extension HomeListViewController: NetworkHandlerObserver {
     func statusDidChange(status: NWPath.Status) {
         let count = viewModel.getViewModelListCount()
         if status == .satisfied {
-            if count == 0 {
-                self.collectionView.isHidden = true
-                self.connectionWarningMessageView.isHidden = true
-                self.refreshButton.isHidden = false
-            } else {
-                self.connectionEstablished = true
-                self.collectionView.isHidden = false
-                self.connectionWarningMessageView.isHidden = true
-                self.refreshButton.isHidden = true
-            }
+            self.connectionEstablished = true
+            self.collectionView.isHidden = false
+            self.connectionWarningMessageView.isHidden = true
+            self.refreshButton.isHidden = true
         } else {
             self.connectionEstablished = false
             if count == 0 {
