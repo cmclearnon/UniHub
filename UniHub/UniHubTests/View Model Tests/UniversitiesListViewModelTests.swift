@@ -1,5 +1,5 @@
 ////
-////  UniversityViewModelTests.swift
+////  UniversitiesListViewModelTests.swift
 ////  UniHubTests
 ////
 ////  Created by Chris McLearnon on 15/10/2020.
@@ -8,9 +8,9 @@
 import XCTest
 @testable import UniHub
 
-class UniversityViewModelTests: XCTestCase {
+class UniversitiesListViewModelTests: XCTestCase {
     var testData: ModelTestData!
-    var mockViewModel: UniversityViewModel!
+    var mockViewModel: UniversitiesListViewModel!
     
     override func setUpWithError() throws {
         testData = ModelTestData()
@@ -27,7 +27,7 @@ class UniversityViewModelTests: XCTestCase {
     }
     
     func test_ViewModelInitialised_NoChange() throws {
-        mockViewModel = UniversityViewModel(onChange: {_ in})
+        mockViewModel = UniversitiesListViewModel(onChange: {_ in})
         XCTAssertNil(mockViewModel.universityList)
     }
     
@@ -45,7 +45,7 @@ class UniversityViewModelTests: XCTestCase {
             return (response, data)
         }
 
-        mockViewModel = UniversityViewModel(onChange: { [weak self] _ in
+        mockViewModel = UniversitiesListViewModel(onChange: { [weak self] _ in
             guard let self = self else {
                 XCTFail("self was nil")
                 return
@@ -73,7 +73,7 @@ class UniversityViewModelTests: XCTestCase {
             return (response, data)
         }
 
-        mockViewModel = UniversityViewModel(onChange: { [weak self] _ in
+        mockViewModel = UniversitiesListViewModel(onChange: { [weak self] _ in
             guard let self = self else {
                 XCTFail("self was nil")
                 return

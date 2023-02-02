@@ -1,5 +1,5 @@
 //
-//  UniversityViewModel.swift
+//  UniversitiesListViewModel.swift
 //  UniHub
 //
 //  Created by Chris McLearnon on 10/10/2020.
@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-class UniversityViewModel: ObservableObject, Identifiable {
+class UniversitiesListViewModel: ObservableObject, Identifiable {
     var universityList: [University]?
     private let client = APIClient.sharedInstance()
     

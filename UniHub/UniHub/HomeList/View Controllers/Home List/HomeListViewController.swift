@@ -11,7 +11,7 @@ import Network
 
 class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayout {
 
-    private var viewModel: UniversityViewModel!
+    private var viewModel: UniversitiesListViewModel!
 
     private var connectionEstablished: Bool = true
     private var networkHandler = NetworkHandler.sharedInstance()
@@ -75,7 +75,7 @@ class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayo
         self.collectionView.delegate = self
 
         setupViews()
-        self.viewModel = UniversityViewModel(onChange: { [weak self] universities in
+        self.viewModel = UniversitiesListViewModel(onChange: { [weak self] universities in
             DispatchQueue.main.sync {
                 self?.activityIndicatorView.isHidden = true
             }

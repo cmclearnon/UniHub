@@ -33,7 +33,7 @@
 		7F822F28253684C700DCC63D /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F27253684C700DCC63D /* RefreshButton.swift */; };
 		7F822F342536E82100DCC63D /* URLProtocolMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F332536E82100DCC63D /* URLProtocolMock.swift */; };
 		7F822F3C2536EA1D00DCC63D /* RefreshButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F27253684C700DCC63D /* RefreshButton.swift */; };
-		7F822F5E2538843600DCC63D /* UniversityViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F5D2538843600DCC63D /* UniversityViewModelTests.swift */; };
+		7F822F5E2538843600DCC63D /* UniversitiesListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F822F5D2538843600DCC63D /* UniversitiesListViewModelTests.swift */; };
 		7FAFFCDE2535B73F00C876F0 /* WKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFCDC2535B73F00C876F0 /* WKWebViewController.swift */; };
 		7FAFFCE42535B76700C876F0 /* WKWebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FAFFCE32535B76700C876F0 /* WKWebViewController.storyboard */; };
 		7FAFFCE52535B76700C876F0 /* WKWebViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FAFFCE32535B76700C876F0 /* WKWebViewController.storyboard */; };
@@ -48,9 +48,9 @@
 		7FAFFD352536508D00C876F0 /* UITestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD342536508D00C876F0 /* UITestData.swift */; };
 		7FAFFD362536508D00C876F0 /* UITestData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FAFFD342536508D00C876F0 /* UITestData.swift */; };
 		7FFBE1DC2987CAB900507F89 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DB2987CAB900507F89 /* APIClient.swift */; };
-		7FFBE1DE2987CF4500507F89 /* UniversityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DD2987CF4500507F89 /* UniversityViewModel.swift */; };
+		7FFBE1DE2987CF4500507F89 /* UniversitiesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DD2987CF4500507F89 /* UniversitiesListViewModel.swift */; };
 		7FFBE1E02987D52300507F89 /* HomeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DF2987D52300507F89 /* HomeListViewController.swift */; };
-		7FFFE0B6298AD45700CD60E5 /* UniversityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DD2987CF4500507F89 /* UniversityViewModel.swift */; };
+		7FFFE0B6298AD45700CD60E5 /* UniversitiesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DD2987CF4500507F89 /* UniversitiesListViewModel.swift */; };
 		7FFFE0B7298AD47900CD60E5 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFBE1DB2987CAB900507F89 /* APIClient.swift */; };
 		7FFFE0B9298BCF1400CD60E5 /* APIClient+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFE0B8298BCF1400CD60E5 /* APIClient+Endpoints.swift */; };
 		7FFFE0BA298BCF1400CD60E5 /* APIClient+Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FFFE0B8298BCF1400CD60E5 /* APIClient+Endpoints.swift */; };
@@ -113,7 +113,7 @@
 		7F822F222536837700DCC63D /* NetworkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHandler.swift; sourceTree = "<group>"; };
 		7F822F27253684C700DCC63D /* RefreshButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshButton.swift; sourceTree = "<group>"; };
 		7F822F332536E82100DCC63D /* URLProtocolMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLProtocolMock.swift; sourceTree = "<group>"; };
-		7F822F5D2538843600DCC63D /* UniversityViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityViewModelTests.swift; sourceTree = "<group>"; };
+		7F822F5D2538843600DCC63D /* UniversitiesListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversitiesListViewModelTests.swift; sourceTree = "<group>"; };
 		7FAFFCDC2535B73F00C876F0 /* WKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebViewController.swift; sourceTree = "<group>"; };
 		7FAFFCE32535B76700C876F0 /* WKWebViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WKWebViewController.storyboard; sourceTree = "<group>"; };
 		7FAFFCEF2535BAD000C876F0 /* ViewsHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewsHelpers.swift; sourceTree = "<group>"; };
@@ -122,7 +122,7 @@
 		7FAFFD2125362A2D00C876F0 /* ColourBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColourBarView.swift; sourceTree = "<group>"; };
 		7FAFFD342536508D00C876F0 /* UITestData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITestData.swift; sourceTree = "<group>"; };
 		7FFBE1DB2987CAB900507F89 /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
-		7FFBE1DD2987CF4500507F89 /* UniversityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityViewModel.swift; sourceTree = "<group>"; };
+		7FFBE1DD2987CF4500507F89 /* UniversitiesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversitiesListViewModel.swift; sourceTree = "<group>"; };
 		7FFBE1DF2987D52300507F89 /* HomeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeListViewController.swift; sourceTree = "<group>"; };
 		7FFFE0B8298BCF1400CD60E5 /* APIClient+Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "APIClient+Endpoints.swift"; sourceTree = "<group>"; };
 		7FFFE0C9298BF07600CD60E5 /* HomeListViewController+CollectionViewDiffableDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeListViewController+CollectionViewDiffableDataSource.swift"; sourceTree = "<group>"; };
@@ -290,7 +290,7 @@
 		7F5332E0253239BF00E86AEA /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				7FFBE1DD2987CF4500507F89 /* UniversityViewModel.swift */,
+				7FFBE1DD2987CF4500507F89 /* UniversitiesListViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -339,7 +339,7 @@
 		7F822F5C2538842200DCC63D /* View Model Tests */ = {
 			isa = PBXGroup;
 			children = (
-				7F822F5D2538843600DCC63D /* UniversityViewModelTests.swift */,
+				7F822F5D2538843600DCC63D /* UniversitiesListViewModelTests.swift */,
 			);
 			path = "View Model Tests";
 			sourceTree = "<group>";
@@ -553,7 +553,7 @@
 				7FFFE0B9298BCF1400CD60E5 /* APIClient+Endpoints.swift in Sources */,
 				7FAFFD352536508D00C876F0 /* UITestData.swift in Sources */,
 				7F533292253207DA00E86AEA /* AppDelegate.swift in Sources */,
-				7FFBE1DE2987CF4500507F89 /* UniversityViewModel.swift in Sources */,
+				7FFBE1DE2987CF4500507F89 /* UniversitiesListViewModel.swift in Sources */,
 				7F822F28253684C700DCC63D /* RefreshButton.swift in Sources */,
 				7FFBE1DC2987CAB900507F89 /* APIClient.swift in Sources */,
 				7F0B21E92535AF190054857C /* WKWebView+Load.swift in Sources */,
@@ -586,10 +586,10 @@
 				7FFFE0C3298BD6DE00CD60E5 /* ColourBarView.swift in Sources */,
 				7F53334A2534ED3200E86AEA /* NetworkUtilities.swift in Sources */,
 				7F822F342536E82100DCC63D /* URLProtocolMock.swift in Sources */,
-				7F822F5E2538843600DCC63D /* UniversityViewModelTests.swift in Sources */,
+				7F822F5E2538843600DCC63D /* UniversitiesListViewModelTests.swift in Sources */,
 				7FFFE0BC298BD1AC00CD60E5 /* HomeListViewControllerTests.swift in Sources */,
 				7FFFE0C4298BD6E800CD60E5 /* CellMainContentsContainerView.swift in Sources */,
-				7FFFE0B6298AD45700CD60E5 /* UniversityViewModel.swift in Sources */,
+				7FFFE0B6298AD45700CD60E5 /* UniversitiesListViewModel.swift in Sources */,
 				7F53335A2534ED3800E86AEA /* APIError.swift in Sources */,
 				7FFFE0C6298BD72200CD60E5 /* WKWebView+Load.swift in Sources */,
 				7FFFE0C2298BD6CE00CD60E5 /* HomeListCollectionViewCell.swift in Sources */,
