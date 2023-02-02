@@ -205,6 +205,7 @@
 		7F5332A7253207DC00E86AEA /* UniHubTests */ = {
 			isa = PBXGroup;
 			children = (
+				7FFFE0BB298BD11100CD60E5 /* View Controller Tests */,
 				7F822F5C2538842200DCC63D /* View Model Tests */,
 				7F822F1625366DAA00DCC63D /* Test Data */,
 				7F5333012534B89A00E86AEA /* Networking Tests */,
@@ -311,7 +312,6 @@
 			isa = PBXGroup;
 			children = (
 				7FAFFD072535BD0E00C876F0 /* View Utilities Tests */,
-				7F53331C2534E43B00E86AEA /* HomeListViewControllerTests.swift */,
 			);
 			path = "View Controller Tests";
 			sourceTree = "<group>";
@@ -373,6 +373,14 @@
 				7FAFFD342536508D00C876F0 /* UITestData.swift */,
 			);
 			path = "Test Data";
+			sourceTree = "<group>";
+		};
+		7FFFE0BB298BD11100CD60E5 /* View Controller Tests */ = {
+			isa = PBXGroup;
+			children = (
+				7F53331C2534E43B00E86AEA /* HomeListViewControllerTests.swift */,
+			);
+			path = "View Controller Tests";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
