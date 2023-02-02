@@ -14,9 +14,9 @@ class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayo
     private var viewModel: UniversityViewModel!
 
     private var connectionEstablished: Bool = true
-    var networkHandler = NetworkHandler.sharedInstance()
+    private var networkHandler = NetworkHandler.sharedInstance()
     
-    private let collectionView: UICollectionView = {
+    let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -29,7 +29,7 @@ class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayo
         )
         return cv
     }()
-    private lazy var dataSource = makeDataSource()
+    private(set) lazy var dataSource = makeDataSource()
     
     private let connectionWarningMessageView: UILabel = {
        let lb = UILabel()
