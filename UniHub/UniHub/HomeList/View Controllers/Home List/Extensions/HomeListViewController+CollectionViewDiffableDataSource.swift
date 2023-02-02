@@ -9,11 +9,11 @@ import UIKit
 import Foundation
 
 extension HomeListViewController {
-    private enum Section: Int, CaseIterable {
+    enum Section: Int, CaseIterable {
         case all
     }
 
-    private func makeDataSource() -> UICollectionViewDiffableDataSource<Section, University> {
+    func makeDataSource() -> UICollectionViewDiffableDataSource<Section, University> {
         UICollectionViewDiffableDataSource(
             collectionView: collectionView,
             cellProvider: { collectionView, indexPath, university in
