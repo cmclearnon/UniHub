@@ -8,11 +8,6 @@
 import Foundation
 import Combine
 
-//protocol UniversityViewModelEventsDelegate: class {
-//    func updateLoadingIndicator()
-//    func updateUIContent(successful: Bool)
-//}
-
 class UniversityViewModel: ObservableObject, Identifiable {
     var universityList: [University]?
     private let client = APIClient.sharedInstance()
