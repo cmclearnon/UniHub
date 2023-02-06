@@ -6,14 +6,19 @@
 ////
 
 import XCTest
+import RxSwift
+import RxTest
+
 @testable import UniHub
 
 class UniversitiesListViewModelTests: XCTestCase {
     var testData: ModelTestData!
-    var mockViewModel: UniversitiesListViewModel!
+    var mockViewModel: UniversitiesListViewModel2!
+    var disposeBag: DisposeBag!
     
     override func setUpWithError() throws {
         testData = ModelTestData()
+        disposeBag = DisposeBag()
 
         /// Setting up a mock URLProtocolMock
         URLProtocol.registerClass(URLProtocolMock.self)
@@ -23,17 +28,14 @@ class UniversitiesListViewModelTests: XCTestCase {
     }
 
     override func tearDownWithError() throws {
+        disposeBag = nil
         mockViewModel = nil
-    }
-    
-    func test_ViewModelInitialised_NoChange() throws {
-        mockViewModel = UniversitiesListViewModel(onChange: {_ in})
-        XCTAssertNil(mockViewModel.universityList)
     }
     
     func test_ViewModelInitialised_OnChangeTriggered() throws {
         let expectation = XCTestExpectation(description: "ViewModel onChange closure triggered")
         let expectedUniversities = [APIClientTestData.expectedUniversityObject]
+        var actualUniversities = [University]()
 
         URLProtocolMock.requestHandler = { request in
             guard let url = request.url, url == APIClient.getAllUniversitiesURL() else {
@@ -45,23 +47,20 @@ class UniversitiesListViewModelTests: XCTestCase {
             return (response, data)
         }
 
-        mockViewModel = UniversitiesListViewModel(onChange: { [weak self] _ in
-            guard let self = self else {
-                XCTFail("self was nil")
-                return
-            }
-
-            expectation.fulfill()
-            XCTAssertEqual(self.mockViewModel.universityList, expectedUniversities)
-        })
-        mockViewModel.fetchUniversities()
+        mockViewModel = UniversitiesListViewModel2()
+        mockViewModel.universityList.subscribe(onNext: { universities in
+            actualUniversities = universities
+        }).disposed(by: disposeBag)
+        mockViewModel.fetchUniversities(completion: { expectation.fulfill() })
         
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: 1)
+        XCTAssertEqual(expectedUniversities, actualUniversities)
     }
     
     func test_ViewModelInitialised_ErrorFetchingUniversities() throws {
         let expectation = XCTestExpectation(description: "ViewModel onChange closure triggered")
         let expectedUniversities = [University]()
+        var actualUniversities = [University]()
 
         URLProtocolMock.requestHandler = { request in
             guard let url = request.url, url == APIClient.getAllUniversitiesURL() else {
@@ -73,17 +72,13 @@ class UniversitiesListViewModelTests: XCTestCase {
             return (response, data)
         }
 
-        mockViewModel = UniversitiesListViewModel(onChange: { [weak self] _ in
-            guard let self = self else {
-                XCTFail("self was nil")
-                return
-            }
-
-            expectation.fulfill()
-            XCTAssertEqual(self.mockViewModel.universityList, expectedUniversities)
-        })
-        mockViewModel.fetchUniversities()
+        mockViewModel = UniversitiesListViewModel2()
+        mockViewModel.universityList.subscribe(onNext: { universities in
+            actualUniversities = universities
+        }).disposed(by: disposeBag)
+        mockViewModel.fetchUniversities(completion: { expectation.fulfill() })
         
-        wait(for: [expectation], timeout: 10)
+        wait(for: [expectation], timeout: 1)
+        XCTAssertEqual(expectedUniversities, actualUniversities)
     }
 }
