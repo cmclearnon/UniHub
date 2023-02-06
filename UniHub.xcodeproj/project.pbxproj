@@ -482,6 +482,7 @@
 				7F5332A0253207DC00E86AEA /* Sources */,
 				7F5332A1253207DC00E86AEA /* Frameworks */,
 				7F5332A2253207DC00E86AEA /* Resources */,
+				462486CE48911F3F635F6E3B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -624,6 +625,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UniHub-UniHubUITests/Pods-UniHub-UniHubUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		462486CE48911F3F635F6E3B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UniHubTests/Pods-UniHubTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-UniHubTests/Pods-UniHubTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-UniHubTests/Pods-UniHubTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4D34B480AF17F97290553010 /* [CP] Check Pods Manifest.lock */ = {

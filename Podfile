@@ -10,6 +10,8 @@ target 'UniHub' do
   target 'UniHubTests' do
     inherit! :search_paths
     # Pods for testing
+    pod 'RxBlocking', '6.5.0'
+    pod 'RxTest', '6.5.0'
   end
 
   target 'UniHubUITests' do
