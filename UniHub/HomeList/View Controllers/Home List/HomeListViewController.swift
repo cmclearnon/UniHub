@@ -8,10 +8,13 @@
 import UIKit
 import Combine
 import Network
+import RxSwift
+import RxCocoa
 
 class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayout {
 
-    private var viewModel: UniversitiesListViewModel!
+    private var viewModel: UniversitiesListViewModel2!
+    private let disposeBag = DisposeBag()
 
     private var connectionEstablished: Bool = true
     private var networkHandler = NetworkHandler.sharedInstance()
@@ -71,19 +74,37 @@ class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayo
         super.viewDidLoad()
         // Registering our cell class with the collection view
         // and assigning our diffable data source to it:
-        self.collectionView.dataSource = dataSource
         self.collectionView.delegate = self
+        self.collectionView.rx.modelSelected(University.self).subscribe(onNext: { [weak self] model in
+            guard let self = self else { return }
+            guard let selectedWebPage = model.webPages.first else {
+                self.displayAlert(withMessage: "Unable to load webpage. Please try again later or contact Customer Support.")
+                return
+            }
+            let vc = WKWebViewController(withWebPage: selectedWebPage)
+            self.navigationController?.pushViewController(vc, animated: true)
+        }).disposed(by: disposeBag)
 
         setupViews()
-        self.viewModel = UniversitiesListViewModel(onChange: { [weak self] universities in
-            DispatchQueue.main.sync {
-                self?.activityIndicatorView.isHidden = true
-            }
-            self?.univiersitiesDidLoad(universities)
-        })
+
+        self.viewModel = UniversitiesListViewModel2()
+        self.viewModel.universityList.bind(to: collectionView.rx.items) { collectionView, index, model in
+            let indexPath = IndexPath(item: index, section: 0)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reuseID", for: indexPath) as! HomeListCollectionViewCell
+            cell.nameString = model.name
+            cell.locationString = model.country
+            cell.domainsList = model.domains
+            
+            return cell
+        }.disposed(by: disposeBag)
         
         self.activityIndicatorView.isHidden = false
-        self.viewModel.fetchUniversities()
+        self.viewModel.fetchUniversities(completion: { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.activityIndicatorView.isHidden = true
+            }
+        })
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -94,7 +115,12 @@ class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayo
 
     @objc func refreshPressed(sender: UIButton!) {
         self.refreshButton.showLoading()
-        self.viewModel.fetchUniversities()
+        self.viewModel.fetchUniversities(completion: { [weak self] in
+            guard let self = self else { return }
+            DispatchQueue.main.async {
+                self.activityIndicatorView.isHidden = true
+            }
+        })
         self.refreshButton.hideLoading()
     }
 }
@@ -139,15 +165,6 @@ extension HomeListViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return CGFloat(30)
     }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let selectedWebPage = viewModel.universityList?[indexPath.row].webPages[0] else {
-            displayAlert(withMessage: "Unable to load webpage. Please try again later or contact Customer Support.")
-            return
-        }
-        let vc = WKWebViewController(withWebPage: selectedWebPage)
-        self.navigationController?.pushViewController(vc, animated: true)
-    }
 }
 
 // Utility function for displaying a UIAlertController view for invalid URL selection
@@ -163,7 +180,7 @@ extension HomeListViewController: NetworkHandlerObserver {
     
     ///Update UI elements displayed depending on network connection
     func statusDidChange(status: NWPath.Status) {
-        let count = viewModel.getViewModelListCount()
+//        let count = viewModel.getViewModelListCount()
         if status == .satisfied {
             self.connectionEstablished = true
             self.collectionView.isHidden = false
@@ -171,11 +188,11 @@ extension HomeListViewController: NetworkHandlerObserver {
             self.refreshButton.isHidden = true
         } else {
             self.connectionEstablished = false
-            if count == 0 {
-                self.collectionView.isHidden = true
-                self.connectionWarningMessageView.isHidden = false
-                self.refreshButton.isHidden = false
-            }
+//            if count == 0 {
+//                self.collectionView.isHidden = true
+//                self.connectionWarningMessageView.isHidden = false
+//                self.refreshButton.isHidden = false
+//            }
         }
     }
 }
