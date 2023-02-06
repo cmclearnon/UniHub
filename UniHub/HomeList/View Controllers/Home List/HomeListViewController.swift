@@ -13,8 +13,8 @@ import RxCocoa
 
 class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayout {
 
-    private var viewModel: UniversitiesListViewModel2!
-    private let disposeBag = DisposeBag()
+    private(set) var viewModel: UniversitiesListViewModel2!
+    private(set) var disposeBag = DisposeBag()
 
     private var connectionEstablished: Bool = true
     private var networkHandler = NetworkHandler.sharedInstance()
@@ -32,7 +32,6 @@ class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayo
         )
         return cv
     }()
-    private(set) lazy var dataSource = makeDataSource()
     
     private let connectionWarningMessageView: UILabel = {
        let lb = UILabel()
@@ -75,34 +74,18 @@ class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayo
         // Registering our cell class with the collection view
         // and assigning our diffable data source to it:
         self.collectionView.delegate = self
-        self.collectionView.rx.modelSelected(University.self).subscribe(onNext: { [weak self] model in
-            guard let self = self else { return }
-            guard let selectedWebPage = model.webPages.first else {
-                self.displayAlert(withMessage: "Unable to load webpage. Please try again later or contact Customer Support.")
-                return
-            }
-            let vc = WKWebViewController(withWebPage: selectedWebPage)
-            self.navigationController?.pushViewController(vc, animated: true)
-        }).disposed(by: disposeBag)
+        self.subscribeForCellSelection()
 
         setupViews()
 
         self.viewModel = UniversitiesListViewModel2()
-        self.viewModel.universityList.bind(to: collectionView.rx.items) { collectionView, index, model in
-            let indexPath = IndexPath(item: index, section: 0)
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "reuseID", for: indexPath) as! HomeListCollectionViewCell
-            cell.nameString = model.name
-            cell.locationString = model.country
-            cell.domainsList = model.domains
-            
-            return cell
-        }.disposed(by: disposeBag)
+        self.bindDataToCollectionView()
         
-        self.activityIndicatorView.isHidden = false
+        self.activityIndicatorView.startAnimating()
         self.viewModel.fetchUniversities(completion: { [weak self] in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                self.activityIndicatorView.isHidden = true
+                self.activityIndicatorView.stopAnimating()
             }
         })
     }
@@ -118,7 +101,7 @@ class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayo
         self.viewModel.fetchUniversities(completion: { [weak self] in
             guard let self = self else { return }
             DispatchQueue.main.async {
-                self.activityIndicatorView.isHidden = true
+                self.activityIndicatorView.stopAnimating()
             }
         })
         self.refreshButton.hideLoading()
