@@ -40,3 +40,22 @@ class UniversitiesListViewModel: ObservableObject, Identifiable {
         return list.count
     }
 }
+
+class UniversitiesListViewModel2: ObservableObject, Identifiable {
+    private(set) var universityList: PublishSubject<[University]> = PublishSubject<[University]>()
+    private let client = APIClient.sharedInstance()
+
+    func fetchUniversities(completion: @escaping () -> Void) {
+        client.fetchUniversities(completionHandler: { [weak self] res in
+            guard let self = self else { return }
+            switch res {
+            case let .success(universities):
+                self.universityList.onNext(universities)
+                completion()
+            case .failure(_):
+                self.universityList.onNext([])
+                completion()
+            }
+        })
+    }
+}
