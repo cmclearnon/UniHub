@@ -13,7 +13,7 @@ import RxTest
 
 class UniversitiesListViewModelTests: XCTestCase {
     var testData: ModelTestData!
-    var mockViewModel: UniversitiesListViewModel2!
+    var mockViewModel: UniversitiesListViewModel!
     var disposeBag: DisposeBag!
     
     override func setUpWithError() throws {
@@ -47,7 +47,7 @@ class UniversitiesListViewModelTests: XCTestCase {
             return (response, data)
         }
 
-        mockViewModel = UniversitiesListViewModel2()
+        mockViewModel = UniversitiesListViewModel()
         mockViewModel.universityList.subscribe(onNext: { universities in
             actualUniversities = universities
         }).disposed(by: disposeBag)
@@ -72,7 +72,7 @@ class UniversitiesListViewModelTests: XCTestCase {
             return (response, data)
         }
 
-        mockViewModel = UniversitiesListViewModel2()
+        mockViewModel = UniversitiesListViewModel()
         mockViewModel.universityList.subscribe(onNext: { universities in
             actualUniversities = universities
         }).disposed(by: disposeBag)

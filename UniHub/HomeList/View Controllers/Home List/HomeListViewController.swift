@@ -13,7 +13,7 @@ import RxCocoa
 
 class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayout {
 
-    private(set) var viewModel: UniversitiesListViewModel2!
+    private(set) var viewModel: UniversitiesListViewModel!
     private(set) var disposeBag = DisposeBag()
 
     private var connectionEstablished: Bool = true
@@ -73,12 +73,14 @@ class HomeListViewController: UIViewController, UICollectionViewDelegateFlowLayo
         super.viewDidLoad()
         // Registering our cell class with the collection view
         // and assigning our diffable data source to it:
-        self.collectionView.delegate = self
+//        self.collectionView.delegate = nil
+        self.collectionView.rx.setDelegate(self).disposed(by: disposeBag)
+        self.collectionView.dataSource = nil
         self.subscribeForCellSelection()
 
         setupViews()
 
-        self.viewModel = UniversitiesListViewModel2()
+        self.viewModel = UniversitiesListViewModel()
         self.bindDataToCollectionView()
         
         self.activityIndicatorView.startAnimating()
